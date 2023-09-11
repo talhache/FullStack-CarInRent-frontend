@@ -7,7 +7,7 @@ export const applicationSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-
+        
     }
 })
 
