@@ -10,7 +10,7 @@ import { RootState } from './app/store'
 
 const App = () => {
   const [text, setText] = useState('')
-  const loading = useSelector((state: RootState) => state.applicationSlice.loading)
+  const loading = useSelector((state: RootState) => state.application.loading)
 
   if(loading){
     return 'loading...'
@@ -21,8 +21,8 @@ const App = () => {
           <Header/>
           <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Поиск' className={styles.input}/>
           <Routes>
-
-            </Routes> 
+            
+          </Routes> 
           <Footer/>
 
     </div>
