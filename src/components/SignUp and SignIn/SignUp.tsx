@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { authSignUp } from "../../features/applicationSlise";
 import { AppDispatch } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../css/Sign.module.css";
+import styles from "./Sign.module.css";
 
 const SignUp = () => {
   const [nickname, setNickname] = useState("");
