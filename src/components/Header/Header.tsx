@@ -14,14 +14,13 @@ const Header = () => {
     
     return (
             <div className={styles.header}>
-                <div className={styles.properties}>
-                <Link to='/' className={styles.home}><div><img src={image} alt="" /></div></Link>
-                <Link to='/Marks' className={styles.marks}><button>Марки</button></Link> 
+                <Link to='/' ><img src={image} alt="CarInRent" className={styles.home}/></Link>
+                <Link to='/Marks' ><button className={styles.button}>Марки</button></Link> 
+                <Link to='/Catalog'> <button className={styles.button}>Каталог</button></Link>
                 {token ? 
-                    ( <button onClick={removeToken}>Выйти</button> ) :
-                    <Link  to='/SignUp' className={styles.sign}><button>Вход и регистрация</button></Link>
-                }
-                </div>                
+                    ( <button onClick={removeToken} className={styles.button}>Выйти</button> ) :
+                    <Link  to='/SignUp'><button className={styles.button}>Вход и регистрация</button></Link>
+                }                
             </div>
     )
 }

@@ -1,3 +1,22 @@
 .header {
-    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: slategray;
+    height: 100px;
+}
+
+.header button {
+    text-align: center;
+}
+.home {
+    width: 100px;
+
+}
+.button {
+    background-color: gainsboro;
+    border: none;
+    color: black;
+    width: 100px;
+    height: 40px;
 }
