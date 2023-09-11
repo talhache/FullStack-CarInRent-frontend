@@ -36,6 +36,8 @@ export const oneCarPage = createSlice({
     builder
     .addCase(getCarById.fulfilled,(state, action) => {
         state.car = action.payload
+        console.log(action.payload);
+        
     })
   },
 });
