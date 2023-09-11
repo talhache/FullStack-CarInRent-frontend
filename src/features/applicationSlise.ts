@@ -8,7 +8,7 @@ type User = {
 };
 
 type RegistrState = {
-  user: User[];
+  users: User[];
   error: null | unknown | string;
   signingUp: boolean;
   signingIn: boolean;
@@ -17,7 +17,7 @@ type RegistrState = {
 };
 
 const initialState: RegistrState = {
-  user: [],
+  users: [],
   error: null,
   signingUp: false,
   signingIn: false,
