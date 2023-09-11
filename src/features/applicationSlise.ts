@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 /* createAsyncThunks */
 
+<<<<<<< HEAD
 type User = {
   _id: string;
   nickname: string;
@@ -74,11 +75,14 @@ export const authSignIn = createAsyncThunk<string | number, User>(
   }
 );
 
+=======
+>>>>>>> 1b16491a2b69c5143d9d897954c5f0bf31514c28
 export const applicationSlice = createSlice({
     name: 'application',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
+<<<<<<< HEAD
         builder
       .addCase(authSignUp.pending, (state) => {
         state.signingUp = true;
@@ -112,6 +116,9 @@ export const applicationSlice = createSlice({
         state.loading = false
       });
   },
+=======
+
+>>>>>>> 1b16491a2b69c5143d9d897954c5f0bf31514c28
     }
 })
 
