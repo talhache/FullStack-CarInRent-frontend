@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { authSignUp } from "../../features/applicationSlise";
 import { AppDispatch } from "../../app/store";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../css/Sign.module.css";
+import styles from "./Sign.module.css";
 
 const SignUp = () => {
-  const [nickname, setNickname] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
@@ -14,7 +14,7 @@ const SignUp = () => {
 
   const handleSignUp = (e: React.FormEvent): void => {
     e.preventDefault();
-    dispatch(authSignUp({ _id: "", nickname, password, email }));
+    dispatch(authSignUp({ _id: "", login, password, email }));
     navigate('/SignIn')
   };
 
@@ -26,9 +26,9 @@ const SignUp = () => {
         <form onSubmit={handleSignUp}>
           <input
             type="text"
-            value={nickname}
+            value={login}
             placeholder="name"
-            onChange={(e) => setNickname(e.target.value)}
+            onChange={(e) => setLogin(e.target.value)}
           />
           <br />
           <input

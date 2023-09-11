@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../app/store";
 import { authSignIn } from "../../features/applicationSlise";
-import styles from "../css/Sign.module.css";
+import styles from "./Sign.module.css";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../app/store";
 
 const SignIn = () => {
-  const [nickname, setNickname] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const token = useSelector((state: RootState) => state.application.token);
@@ -19,7 +19,7 @@ const SignIn = () => {
 
   const handleSignUp = (e: React.FormEvent): void => {
     e.preventDefault();
-    dispatch(authSignIn({ _id: "", password, nickname, email}));
+    dispatch(authSignIn({ _id: "", password, login, email}));
     navigate("/");
   };
 
@@ -30,9 +30,9 @@ const SignIn = () => {
         <form onSubmit={handleSignUp}>
           <input
             type="text"
-            value={nickname}
+            value={login}
             placeholder="name"
-            onChange={(e) => setNickname(e.target.value)}
+            onChange={(e) => setLogin(e.target.value)}
           />
           <br />
           <input
