@@ -20,7 +20,6 @@ const App = () => {
     <div className={styles.app}>
           <Header/>
           <Routes>
-            
           </Routes> 
           <Footer/>
     </div>
