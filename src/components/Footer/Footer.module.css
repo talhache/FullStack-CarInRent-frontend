@@ -1,0 +1,29 @@
+.info {
+    display: flex;
+    justify-content:space-around
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+
+.icon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.aboutWe {
+    width: 300px;
+}
+
+.company {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.text {
+    color: red 
+}
