@@ -4,9 +4,7 @@ import { applicationSlice } from '../features/applicationSlise';
 
 export const store = configureStore({
     reducer: {
-        news: newsSlice.reducer,
         application: applicationSlice.reducer,
-        category: categorySlice.reducer
     },
 })
 
