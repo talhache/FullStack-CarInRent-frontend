@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../app/store";
 import { authSignIn } from "../../features/applicationSlise";
-import styles from "../css/Sign.module.css";
+import styles from "./Sign.module.css";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../app/store";
 
