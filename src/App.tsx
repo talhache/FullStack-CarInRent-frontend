@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from './app/store'
+import Markpage from './components/pages/Markspage/Markpage'
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
     <div className={styles.app}>
           <Header/>
           <Routes>
+            <Route path='/marks' element={<Markpage/>}/>
           </Routes> 
           <Footer/>
     </div>

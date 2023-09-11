@@ -17,6 +17,7 @@ const Header = () => {
             <div className={styles.header}>
                 <div className={styles.properties}>
                 <div><img src="" alt="" /></div>
+                <Link to='/marks' className={styles.models}><button>Марки</button></Link> 
                 <Link to='/Models' className={styles.models}><button>Модели</button></Link> 
                 <Link to='/' className={styles.home}><button>CarInRent</button></Link>
                 {token ? 
