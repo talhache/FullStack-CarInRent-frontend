@@ -13,6 +13,7 @@ const Header = () => {
     
     return (
         <div>
+            
             <div className={styles.header}>
                 <div className={styles.properties}>
                 <div><img src="" alt="" /></div>
@@ -24,6 +25,7 @@ const Header = () => {
                 }
                 </div>                
             </div>
+
         </div>
     )
 }
