@@ -8,6 +8,7 @@ import { RootState } from './app/store'
 import Markpage from './components/pages/Markspage/Markpage'
 import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
+import Mainpage from './components/pages/Mainpage/Mainpage'
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/marks' element={<Markpage/>}/>
             <Route path='/SignUp' element={<SignUp/>} />
             <Route path='/SignIn' element={<SignIn/>} />
+            <Route path='/Catalog' element={<Mainpage/>} />
           </Routes> 
           <Footer/>
     </div>
