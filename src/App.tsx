@@ -19,7 +19,6 @@ const App = () => {
   return (
     <div className={styles.app}>
           <Header/>
-          <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Поиск' className={styles.input}/>
           <Routes>
             
           </Routes> 
