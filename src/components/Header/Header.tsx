@@ -15,8 +15,9 @@ const Header = () => {
     return (
             <div className={styles.header}>
                 <Link to='/' ><img src={image} alt="CarInRent" className={styles.home}/></Link>
-                <Link to='/Marks' ><button className={styles.button}>Марки</button></Link> 
+                <Link to='/marks' ><button className={styles.button}>Марки</button></Link> 
                 <Link to='/Catalog'> <button className={styles.button}>Каталог</button></Link>
+
                 {token ? 
                     ( <button onClick={removeToken} className={styles.button}>Выйти</button> ) :
                     <Link  to='/SignUp'><button className={styles.button}>Вход и регистрация</button></Link>

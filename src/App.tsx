@@ -5,6 +5,7 @@ import styles from './App.module.css'
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from './app/store'
+import Markpage from './components/pages/Markspage/Markpage'
 import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
 
@@ -21,7 +22,7 @@ const App = () => {
     <div className={styles.app}>
           <Header/>
           <Routes>
-            <Route path='/Marks'/>
+            <Route path='/marks' element={<Markpage/>}/>
             <Route path='/SignUp' element={<SignUp/>} />
             <Route path='/SignIn' element={<SignIn/>} />
           </Routes> 

@@ -1,4 +1,21 @@
-# React + TypeScript + Vite
+Порядок действий после готовности вашей фичи: 
+   - git add . <!-- выделить все документы для обновления -->
+   - git commit -m '(название коммита)' <!-- сделать коммит всех изменений документов -->
+   - git push -u origin (название рабочей ветки) <!-- отправить коммит в ваш репозиторий -->
+   - делаем пул реквест
+   - ждем пока ПЛ примут
+   - git checkout main <!-- перейти на мейн ветку -->
+   - git pull upstream main <!-- стянуть данные с основного репозитория -->
+   - git checkout -b (рабочая ветка) <!-- создать новую ветку и сразу переключиться на неё -->
+   - git merge main <!-- стянуть все данные с вашей MAIN ветки и загрузить на вашу рабочую ветку -->
+
+- git branch -m (новое название ветки) - переименовать ветку, на которой вы находитесь
+
+
+
+
+
+<!-- # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -24,4 +41,4 @@ If you are developing a production application, we recommend updating the config
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list -->
