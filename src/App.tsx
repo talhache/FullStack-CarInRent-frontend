@@ -5,7 +5,7 @@ import styles from './App.module.css'
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from './app/store'
-
+import OneCarPage from './components/pages/OneCarPage/OneCarPage'
 
 
 const App = () => {
@@ -20,6 +20,7 @@ const App = () => {
     <div className={styles.app}>
           <Header/>
           <Routes>
+            <Route path="/OneCarPage/:carId" element={<OneCarPage />} />
           </Routes> 
           <Footer/>
     </div>
