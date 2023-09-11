@@ -18,12 +18,12 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <Header />
-      <Routes>
-
-      </Routes>
-      <Footer />
-
+          <Header/>
+          <input value={text} onChange={(e) => setText(e.target.value)} type="text" placeholder='Поиск' className={styles.input}/>
+          <Routes>
+            
+          </Routes> 
+          <Footer/>
     </div>
   )
 }
