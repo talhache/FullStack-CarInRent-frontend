@@ -1,7 +1,7 @@
 import {  Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from "../../app/store"
-import styles from '../css/Header.module.css'
+import styles from './Header.module.css'
 
 const Header = () => {
     const token = useSelector((state: RootState) => state.application.token)
