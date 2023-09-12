@@ -33,7 +33,7 @@ return(
 )
 
 
-}
+}   
 
 
 export default OneCarPage
