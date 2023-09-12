@@ -11,6 +11,7 @@ import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
 import Mainpage from './components/pages/Catalog/Catalog'
 import Homepage from './components/pages/Homepage/Homepage'
+import Profile from './components/Profile/Profile'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/SignIn' element={<SignIn />} />
         <Route path='/Catalog' element={<Mainpage />} />
+        <Route path='/Profile' element={<Profile/>} />
       </Routes>
       <Footer />
     </div>

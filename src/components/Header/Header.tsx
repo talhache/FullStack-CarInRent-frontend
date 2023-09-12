@@ -19,7 +19,7 @@ const Header = () => {
                 <Link to='/Catalog'> <button className={styles.button}>Каталог</button></Link>
 
                 {token ? 
-                    ( <button onClick={removeToken} className={styles.button}>Выйти</button> ) :
+                    ( <div><button onClick={removeToken} className={styles.button}>Выйти</button> <Link to='/Profile'><button className={styles.button}>Личный кабинет</button></Link></div> ) :
                     <Link  to='/SignUp'><button className={styles.button}>Вход и регистрация</button></Link>
                 }                
             </div>
