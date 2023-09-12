@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { applicationSlice } from '../features/applicationSlise';
 import { oneCarPageSlice } from '../features/oneCarPageSlice'
 import modelsSlice from "../features/modelsSlice";
+import marksSlice from "../features/marksSlice";
 
 
 
@@ -10,6 +11,7 @@ export const store = configureStore({
         application: applicationSlice.reducer,
         oneCarPage: oneCarPageSlice.reducer
         Cars: modelsSlice,
+        marks: marksSlice
     },
 })
 

@@ -1,0 +1,26 @@
+.marksContainer {
+   margin: auto;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   width: 80%;
+}
+
+.marksBlock {
+    width: 15vw;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.marksImg {
+    background-color: black;
+    width: 100%;
+    
+}
+
+.marksContainer_cont {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
