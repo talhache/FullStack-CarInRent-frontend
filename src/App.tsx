@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import styles from './App.module.css'
@@ -21,15 +21,15 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-          <Header/>
-          <Routes>
-            <Route path="/cars/:carId" element={<OneCarPage />} />
-            <Route path='/marks' element={<Markpage/>}/>
-            <Route path='/SignUp' element={<SignUp/>} />
-            <Route path='/SignIn' element={<SignIn/>} />
-            <Route path='/Catalog' element={<Mainpage/>} />
-          </Routes> 
-          <Footer/>
+      <Header />
+      <Routes>
+        <Route path="/cars/:carId" element={<OneCarPage />} />
+        <Route path='/marks' element={<Markpage />} />
+        <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/SignIn' element={<SignIn />} />
+        <Route path='/Catalog' element={<Mainpage />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }
