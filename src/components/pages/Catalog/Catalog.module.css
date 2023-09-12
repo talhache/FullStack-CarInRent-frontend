@@ -1,0 +1,71 @@
+.carCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 8px;
+  }
+
+  .carCard:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавляем тень при наведении */
+    transform: translateY(-2px); 
+  }
+
+  .info {
+    flex-grow: 1; /* Занимаем все доступное пространство */
+  }
+  
+  h2 {
+    margin: 0;
+  }
+  
+  .imgCar {
+    max-width: 200px; /* Максимальная ширина изображения */
+    margin: 5px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+  
+  }
+
+  .imgCar:hover {
+    transform: scale(1.1); /* Увеличиваем изображение при наведении */
+    filter: brightness(90%);
+  }
+  
+
+
+  .link {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .link:hover {
+    background-color: #0056b3;
+  }
+
+  .compareIcon {
+    position: relative;
+    bottom: 30px;
+    right: 25px;
+   cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  
+
+  
+  

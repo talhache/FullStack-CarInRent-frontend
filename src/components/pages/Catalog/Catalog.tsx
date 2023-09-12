@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../app/store';
 import CarCard from './CarCard';
 import { fetchModels } from '../../../features/modelsSlice';
-import styles from './Mainpage.module.css'
+import styles from './Catalog.module.css'
+
 
 
 const MainPage: React.FC = () => {
   const dispatch = useDispatch();
   const { models, status, error } = useSelector((state: RootState) => state.Cars);
+  
 
   useEffect(() => {
     if (status === 'idle') {
@@ -34,6 +36,7 @@ const MainPage: React.FC = () => {
         price={model.price}
         description={model.description}
         capacity={model.capacity}
+        carsId={model._id}
       />
       ))}
     </div>
