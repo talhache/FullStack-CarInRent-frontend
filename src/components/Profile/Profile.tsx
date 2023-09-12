@@ -1,9 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../app/store';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../app/store';
+import { oneUser } from '../../features/applicationSlise';
 
 const Profile = () => {
   const user = useSelector((state: RootState) => state.application.users); // Получаем информацию о пользователе из Redux
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    dispatch(oneUser())
+  })
+
   return (
     <div>
       <h2>Личный кабинет</h2>
