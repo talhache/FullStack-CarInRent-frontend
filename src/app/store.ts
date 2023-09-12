@@ -9,7 +9,7 @@ import marksSlice from "../features/marksSlice";
 export const store = configureStore({
     reducer: {
         application: applicationSlice.reducer,
-        oneCarPage: oneCarPageSlice.reducer
+        oneCarPage: oneCarPageSlice.reducer,
         Cars: modelsSlice,
         marks: marksSlice
     },
