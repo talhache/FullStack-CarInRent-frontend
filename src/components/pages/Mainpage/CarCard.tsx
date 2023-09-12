@@ -21,6 +21,7 @@ const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capaci
       <div>{shortDescription}</div>
       <div>Capacity: {capacity}</div>
       <Link to={`/cars/${carsId}`} className={styles.link}>Перейти к модели</Link>
+      
     </div>
   );
 }

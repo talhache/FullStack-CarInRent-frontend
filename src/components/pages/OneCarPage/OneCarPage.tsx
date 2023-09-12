@@ -14,21 +14,36 @@ const [reviews, setReviews] = React.useState("")
 const handleOnChangeTextArea = (text: string) => {
     setReviews(text)
 }
-const car = useSelector((state:RootState) => state.car.car)
+const {carId} = useParams()
+const cars = useSelector((state:RootState) => state.oneCarPage.car)
+console.log(cars);
 
 React.useEffect(() => {
-    
-    dispatch(getCarById())
+    dispatch(getCarById(carId))
 }, [dispatch])
+
 return(
-<div className={styles.glavCard}>
-    {car.map((oneCar) => {
-        return (
-            <div>
-                {oneCar.name}
-            </div>
-        )
-    })}
+<div className={styles.oneCarPage}>
+<div className={styles.car}>
+    <div className={styles.carImg}>
+        <img
+        width={500}
+        src={`http://localhost:4444/assets/img/${cars.img}`}
+        />
+    </div>
+    <div className={styles.carInfo}>
+        <div className={styles.carName}>{cars.name}</div>
+        <div className={styles.carPrice}>
+            {cars.price}
+        </div>
+        <div className={styles.carDescription}>
+            {cars.description}
+        </div>
+         <div className={styles.carCapacity}>
+            {cars.capacity}
+         </div>
+    </div>
+</div>
 </div>
 )
 

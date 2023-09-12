@@ -10,6 +10,7 @@ interface Model {
   mark: string;
   description: string;
   capacity: number;
+  
 }
 
 interface ModelsState {
