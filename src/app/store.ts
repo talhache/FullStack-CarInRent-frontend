@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { applicationSlice } from '../features/applicationSlise';
+import modelsSlice from "../features/modelsSlice";
+
 
 
 export const store = configureStore({
     reducer: {
         application: applicationSlice.reducer,
+        Cars: modelsSlice,
     },
 })
 
