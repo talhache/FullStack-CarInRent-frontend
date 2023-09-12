@@ -22,7 +22,6 @@ const App = () => {
   return (
     <div className={styles.app}>
       <Header />
-      <Mainpage/>
       <Routes>
         <Route path="/cars/:carId" element={<OneCarPage />} />
         <Route path='/marks' element={<Markpage />} />
