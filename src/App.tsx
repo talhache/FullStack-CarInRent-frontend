@@ -9,7 +9,7 @@ import OneCarPage from './components/pages/OneCarPage/OneCarPage'
 import Markpage from './components/pages/Markspage/Markpage'
 import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
-import Mainpage from './components/pages/Mainpage/Mainpage'
+import Mainpage from './components/pages/Catalog/Catalog'
 import Homepage from './components/pages/Homepage/Homepage'
 
 
