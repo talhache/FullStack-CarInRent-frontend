@@ -4,7 +4,7 @@ import { RootState } from '../../../app/store';
 import CarCard from './CarCard';
 import { fetchModels } from '../../../features/modelsSlice';
 import styles from './Catalog.module.css'
-
+import { Link } from 'react-router-dom';
 
 
 const MainPage: React.FC = () => {
@@ -29,6 +29,7 @@ const MainPage: React.FC = () => {
   return (
     <div className={styles.mainPage}>
       {models.map((model) => (
+      
         <CarCard
         key={model._id}
         img={model.img}
@@ -38,6 +39,8 @@ const MainPage: React.FC = () => {
         capacity={model.capacity}
         carsId={model._id}
       />
+ 
+
       ))}
     </div>
   );

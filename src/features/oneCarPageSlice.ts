@@ -7,6 +7,7 @@ type Car = {
   description: string;
   capacity: number;
   mark: string;
+  price:string
 };
 
 type CarState = {
@@ -20,7 +21,7 @@ const initialState: CarState = {
 
 export const getCarById = createAsyncThunk("carId/fetch", async (_id, thunkAPI) =>{
     try {
-        const res = await fetch(`http://localhost:4444/cars${_id}`);
+        const res = await fetch(`http://localhost:4444/cars/${_id}`);
         return res.json();
       } catch (err) {
         return thunkAPI.rejectWithValue(err);
@@ -36,8 +37,10 @@ export const oneCarPageSlice = createSlice({
     builder
     .addCase(getCarById.fulfilled,(state, action) => {
         state.car = action.payload
-        console.log(action.payload);
+        
         
     })
   },
 });
+
+export default oneCarPageSlice.reducer
