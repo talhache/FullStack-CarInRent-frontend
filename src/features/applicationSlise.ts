@@ -49,6 +49,12 @@ export const authSignUp = createAsyncThunk<string | number, User>(
   }
 );
 
+export const oneUser = createAsyncThunk('user/fetchUser', async (data, thunkAPI) => {
+  const res = await fetch('http://localhost:4444/user')
+  const todo = await res.json()
+  return todo
+})
+
 export const authSignIn = createAsyncThunk<string | number, User>(
   "auth/signin",
   async ({ login, password }, thunkAPI) => {
