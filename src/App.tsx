@@ -10,6 +10,7 @@ import Markpage from './components/pages/Markspage/Markpage'
 import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
 import Mainpage from './components/pages/Mainpage/Mainpage'
+import Homepage from './components/pages/Homepage/Homepage'
 
 
 const App = () => {
@@ -22,8 +23,8 @@ const App = () => {
   return (
     <div className={styles.app}>
       <Header />
-      <Mainpage/>
       <Routes>
+        <Route path='/' element={<Homepage/>} />
         <Route path="/cars/:carId" element={<OneCarPage />} />
         <Route path='/marks' element={<Markpage />} />
         <Route path='/SignUp' element={<SignUp />} />
