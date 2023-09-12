@@ -28,7 +28,7 @@ export const getCarById = createAsyncThunk("carId/fetch", async (_id, thunkAPI) 
     });
 
 
-export const oneCarPage = createSlice({
+export const oneCarPageSlice = createSlice({
   name: "car",
   initialState,
   reducers: {},
