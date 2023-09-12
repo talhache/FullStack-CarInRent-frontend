@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { applicationSlice } from '../features/applicationSlise';
 import modelsSlice from "../features/modelsSlice";
+import marksSlice from "../features/marksSlice";
 
 
 
@@ -8,6 +9,7 @@ export const store = configureStore({
     reducer: {
         application: applicationSlice.reducer,
         Cars: modelsSlice,
+        marks: marksSlice
     },
 })
 

@@ -1,10 +1,12 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+
 export interface MarksCar {
     _id: string,
     name: string
 }
 
 type RegistrState = {
-    category: CategoryNews[]
+    marks: MarksCar[]
     error: null | unknown | string
     loading: boolean
 }
@@ -19,10 +21,10 @@ export const fetchMarks = createAsyncThunk(
     "fetch/marks",
     async (_, thunkAPI) => {
         try {
-            const res = await fetch("http://localhost:5000/category");
-            const categories = await res.json();
+            const res = await fetch("http://localhost:4444/marks");
+            const marks = await res.json();
 
-            return categories;
+            return marks;
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
         }
@@ -35,38 +37,19 @@ export const marksSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(authSignUp.pending, (state) => {
-                state.signingUp = true;
+            .addCase(fetchMarks.fulfilled, (state, action) => {
+                state.marks = action.payload;
                 state.error = null;
+                state.loading = false
+            })
+            .addCase(fetchMarks.rejected, (state, action) => {
+                state.error = action.payload.message;
+                state.loading = false
+            })
+            .addCase(fetchMarks.pending, (state) => {
                 state.loading = true
             })
-            .addCase(authSignUp.rejected, (state, action) => {
-                state.signingUp = false;
-                state.error = action.payload;
-                state.loading = false
-            })
-            .addCase(authSignUp.fulfilled, (state) => {
-                state.signingUp = false;
-                state.error = null;
-                state.loading = false
-            })
-            .addCase(authSignIn.pending, (state) => {
-                state.signingIn = true;
-                state.error = null;
-                state.loading = true
-            })
-            .addCase(authSignIn.rejected, (state, action) => {
-                state.signingIn = false;
-                state.error = action.payload;
-                state.loading = false
-            })
-            .addCase(authSignIn.fulfilled, (state, action) => {
-                state.signingIn = false;
-                state.error = null;
-                state.token = action.payload.token;
-                state.loading = false
-            });
     },
 })
 
-export default applicationSlice.reducer
+export default marksSlice.reducer

@@ -27,3 +27,7 @@ a {
 .text {
     color: red 
 }
+
+.footer {
+    margin-top: auto;
+}
