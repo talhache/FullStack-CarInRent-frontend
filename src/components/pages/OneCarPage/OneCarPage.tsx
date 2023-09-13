@@ -19,7 +19,7 @@ const OneCarPage = () => {
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
   const [review, setReviews] = React.useState("");
 
-  const handleSendReviews = (review) => {
+  const handleSendReviews = (review: string) => {
     dispatch(addReviews({ text: review, carId, userId: userId }));
   };
 
@@ -29,7 +29,8 @@ const OneCarPage = () => {
   };
   const { carId } = useParams();
 
-  const handleDeleteReviews = (_id) => {
+  const handleDeleteReviews = (_id: string) => {
+    
     dispatch(deletedReviews({ _id, carId }));
   };
 
