@@ -3,26 +3,38 @@ import styles from "./OneCarPage.module.css"
 
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import {  getCarById, patchReviews, addReviews } from "../../../features/oneCarPageSlice"
+import {  getCarById, patchReviews, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice"
 import { AppDispatch, RootState } from "../../../app/store"
 
 const OneCarPage = () => {
     const dispatch = useDispatch<AppDispatch>()
     
+    const cars = useSelector((state:RootState) => state.oneCarPage.car)
+    const users = useSelector((state: RootState) => state.application.users)
+    const reviews = useSelector((state: RootState) => state.oneCarPage.reviews)
+    console.log(reviews);
+    console.log(cars);
 const [review, setReviews] = React.useState("")
 
+const handleSendReviews = (review) => {
+  dispatch(addReviews({text: review, carId, userId: userId}))
+}
+
+//setReviews("")
 const handleOnChangeTextArea = (text: string) => {
     setReviews(text)
 }
 const {carId} = useParams()
-const cars = useSelector((state:RootState) => state.oneCarPage.car)
-const reviews = useSelector((state: RootState) => {state.oneCarPage.reviews})
-console.log(cars);
 
+
+
+const handleDeleteReviews = (_id) => {
+    dispatch(deletedReviews({_id, carId}))
+}
 
 
 React.useEffect(() => {
-    //dispatch(addReviews({userId, rating, text}))
+    dispatch(fetchReviews())
     dispatch(getCarById(carId))
 }, [dispatch])
 
@@ -50,14 +62,39 @@ return(
 </div>
 
 <div className={styles.reviews}>
-    {/* {reviews.map((item) => {
+    <span>Коментарии</span>
+    {reviews.map((reviewss, index) => {
+         const user = users.find((user) => user._id === reviewss)
+        const review = reviews.filter((item) => item.cars !== cars._id)
+
         return(
-            <div>
-                {item}
+            <div className={styles.review} key={index}>
+                <div className={styles.reviewUser}>{user?.login}</div>
+                <div className={styles.reviewText}>{reviewss.text}</div>
+                 <div className={styles.reviewFilter}>{review.item}</div>
+                <button className={styles.reviewButton} onClick={() =>handleDeleteReviews(reviewss._id)}>x</button>
             </div>
         )
-    })} */}
+    })}
+    <div className ={styles.addReviewsText}>Оставить коментарии</div>
+    <textarea
+    name=""
+    value={review}
+    onChange={(e) => handleOnChangeTextArea(e.target.value)}
+    id={styles.textarea}
+    cols="30"
+    rows="5"
+    ></textarea>
+    <div className={styles.sendReviews}>
+        <button
+        disabled={!review}
+        onClick={() => handleSendReviews(review)}
+        >
+            Отправить
+        </button>
+    </div>
 </div>
+
 </div>
 )
 
