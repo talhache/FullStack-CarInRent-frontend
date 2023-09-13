@@ -68,7 +68,6 @@ const OneCarPage = () => {
 //   const user = users.find((user) => user._id === reviewss.user._id)
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
-  
 
   return (
     <div className={styles.oneCarPage}>
@@ -76,7 +75,8 @@ const OneCarPage = () => {
         <div className={styles.carImg}>
           <img
             width={500}
-            src={`http://localhost:4444/assets/img/${cars.img}`}
+            src={`http://localhost:4444/assets/img/${cars.img}`} 
+            alt="car"
           />
         </div>
         <div className={styles.carInfo}>
@@ -117,8 +117,7 @@ const OneCarPage = () => {
           rows="5"
         ></textarea>
         <div className={styles.sendReviews}>
-          <button disabled={!review} onClick={() => handleSendReviews(review)}
-          >
+          <button disabled={!review} onClick={() => handleSendReviews(review)}>
             Отправить
           </button>
         </div>
@@ -126,5 +125,6 @@ const OneCarPage = () => {
     </div>
   );
 };
+
 
 export default OneCarPage;
