@@ -3,22 +3,26 @@ import styles from "./OneCarPage.module.css"
 
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import {  getCarById } from "../../../features/oneCarPageSlice"
+import {  getCarById, patchReviews, addReviews } from "../../../features/oneCarPageSlice"
 import { AppDispatch, RootState } from "../../../app/store"
 
 const OneCarPage = () => {
     const dispatch = useDispatch<AppDispatch>()
     
-const [reviews, setReviews] = React.useState("")
+const [review, setReviews] = React.useState("")
 
 const handleOnChangeTextArea = (text: string) => {
     setReviews(text)
 }
 const {carId} = useParams()
 const cars = useSelector((state:RootState) => state.oneCarPage.car)
+const reviews = useSelector((state: RootState) => {state.oneCarPage.reviews})
 console.log(cars);
 
+
+
 React.useEffect(() => {
+    //dispatch(addReviews({userId, rating, text}))
     dispatch(getCarById(carId))
 }, [dispatch])
 
@@ -43,6 +47,16 @@ return(
             {cars.capacity}
          </div>
     </div>
+</div>
+
+<div className={styles.reviews}>
+    {/* {reviews.map((item) => {
+        return(
+            <div>
+                {item}
+            </div>
+        )
+    })} */}
 </div>
 </div>
 )
