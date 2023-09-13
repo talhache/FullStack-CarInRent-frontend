@@ -49,8 +49,6 @@ h2 {
   filter: brightness(90%);
 }
 
-
-
 .link {
   display: block;
   margin-top: 10px;
@@ -75,3 +73,7 @@ h2 {
   color: rgb(4, 69, 74)
 }
 
+.mainPage input {
+  margin-top: 10px;
+  margin-left: 20px;
+}

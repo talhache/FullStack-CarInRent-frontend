@@ -14,7 +14,6 @@ const SignUp = () => {
   const [emailError, setEmailError] = useState('Введите емайл');
   const [passwordError, setPasswordError] = useState('Введите пароль');
   const [formValid, setFormValid] = useState(false);
-
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -45,9 +44,9 @@ const SignUp = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value)
-        if (e.target.value.length < 3) {
+    if (e.target.value.length < 3) {
       setPasswordError('давай еще')
-      if(!e.target.value) {
+      if (!e.target.value) {
         setPasswordError('Введите пароль')
       }
     } else {
@@ -70,7 +69,7 @@ const SignUp = () => {
   return (
     <div className={styles.author}>
       <div className={styles.authorinput}>
-        <form onSubmit={handleSignUp}>
+        <form className={styles.form} onSubmit={handleSignUp}>
           <h2>Регистрация</h2>
           <input
             type="text"
@@ -78,7 +77,6 @@ const SignUp = () => {
             placeholder="name"
             onChange={(e) => setLogin(e.target.value)}
           />
-          <br />
           <input
             onBlur={e => handleBlur(e)}
             name="password"
@@ -87,8 +85,7 @@ const SignUp = () => {
             placeholder="password"
             onChange={(e) => handlePassword(e)}
           />
-          {(passwordDirty && passwordError) && <div style={{ color: "red" }}>{passwordError}</div>}
-          <br />
+          {(passwordDirty && passwordError) && <div className={styles.error}>{passwordError}</div>}
           <input
             onBlur={e => handleBlur(e)}
             name="email"
@@ -96,7 +93,7 @@ const SignUp = () => {
             placeholder="Enter your email..."
             onChange={(e) => handleEmail(e)}
           />
-          {(emailDirty && emailError) && <div style={{ color: "red" }}>{emailError}</div>}
+          {(emailDirty && emailError) && <div className={styles.error}>{emailError}</div>}
           <button disabled={!formValid} type="submit">Registration</button>
         </form>
         <div className={styles.but}>

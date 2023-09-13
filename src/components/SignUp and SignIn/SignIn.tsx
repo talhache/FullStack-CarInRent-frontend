@@ -27,7 +27,7 @@ const SignIn = () => {
   return (
     <div className={styles.author}>
       <div className={styles.authorinput}>
-      {error && <div style={{ color: "red" }}>Неверный логин или пароль</div>}
+      {error && <div className={styles.error}>Неверный логин или пароль</div>}
         <form onSubmit={handleSignUp}>
           <input
             type="text"
@@ -35,14 +35,12 @@ const SignIn = () => {
             placeholder="name"
             onChange={(e) => setLogin(e.target.value)}
           />
-          <br />
           <input
             type="password"
             value={password}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <br />
           <button type="submit">login</button>
         </form>
       </div>
