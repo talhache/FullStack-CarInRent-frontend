@@ -21,8 +21,9 @@ const userState: userInfoState = {
   token: localStorage.getItem("token"),
 };
 
-export const oneUser = createAsyncThunk('user/fetchUser', async (data, thunkAPI) => {
-  const res = await fetch('http://localhost:4444/user')
+export const oneUser = createAsyncThunk('user/fetchUser', async (id, thunkAPI) => {
+  console.log(id)
+  const res = await fetch(`http://localhost:4444/user/${id}`)
   const todo = await res.json()
   return todo
 })
