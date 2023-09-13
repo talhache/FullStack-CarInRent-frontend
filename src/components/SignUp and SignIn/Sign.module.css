@@ -15,7 +15,7 @@
     padding: 50px;
 }
 .authorinput input{
-    margin-top: 10px;
+    margin-top: 5px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid black;
@@ -33,10 +33,24 @@
     border-radius: 5px;
 }
 .but {
-    margin-top: 45px;
+    margin-top: 4px;
     color: black;
 }
 .sign {
     text-decoration: none;
     color: blue;
 }
+
+button:hover {
+    background-color: #0056b3;
+  }
+
+  .error {
+    color: #ff0000;
+    font-size: 14px;
+  }
+
+  .form {
+   
+  }
+  

@@ -74,3 +74,8 @@ h2 {
   cursor: pointer;
   color: rgb(4, 69, 74);
 }
+
+.mainPage input {
+  margin-top: 10px;
+  margin-left: 20px;
+}
