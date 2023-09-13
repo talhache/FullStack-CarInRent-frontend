@@ -107,13 +107,17 @@ export const addReviews = createAsyncThunk<
 
 export const deletedReviews = createAsyncThunk(
   "comments/deletedComments",
-  async (id, thunkAPI) => {
+  async ({_id, carId}, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:4444/reviews/${id}`, {
+      const res = await fetch(`http://localhost:4444/reviews/${_id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`
+        }
       });
       if (res.ok) {
-        return id;
+        return _id;
       }
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -137,9 +141,11 @@ export const oneCarPageSlice = createSlice({
       })
 
       .addCase(deletedReviews.fulfilled, (state, action) => {
-        state.reviews = state.reviews.filter(
-          (item) => item._id !== action.payload
-        );
+        console.log(state.reviews);
+        console.log(action.payload);
+        
+        
+        state.reviews = state.reviews.filter((item) => item._id !== action.payload)
       })
       .addCase(patchReviews.fulfilled, (state, action) => {
         state.reviews = action.payload;

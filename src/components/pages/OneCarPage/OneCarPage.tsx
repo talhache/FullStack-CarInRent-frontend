@@ -8,6 +8,9 @@ import { AppDispatch, RootState } from "../../../app/store"
 const OneCarPage = () => {
     const dispatch = useDispatch<AppDispatch>()
 
+  const handleSendReviews = (review: string) => {
+    dispatch(addReviews({ text: review, carId, userId: userId }));
+              
     const [review, setReviews] = React.useState("")
 
     const handleOnChangeTextArea = (text: string) => {
@@ -18,7 +21,8 @@ const OneCarPage = () => {
     const reviews = useSelector((state: RootState) => { state.oneCarPage.reviews })
     console.log(cars);
 
-  const handleDeleteReviews = (_id) => {
+  const handleDeleteReviews = (_id: string) => {
+    
     dispatch(deletedReviews({ _id, carId }));
   };
 
