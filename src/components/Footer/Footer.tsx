@@ -1,5 +1,8 @@
 import React from 'react'
 import styles from './Footer.module.css';
+import inst from './instagram_ig_insta_icon_190937.svg'
+import email from './email-envelope-outline-shape-with-rounded-corners_icon-icons.com_56530.svg'
+import tg from './telegram_icon_131945.svg'
 
 const Footer = () => {
   return (
@@ -13,9 +16,9 @@ const Footer = () => {
 
           <div className={styles.contacts}>
             <h4>КОНТАКТЫ </h4>
-            <p ><a href="www"><img src="src/components/Footer/instagram_ig_insta_icon_190937.svg" className={styles.icon} />instagramm</a></p>
-            <p><a href="www"><img src="src/components/Footer/email-envelope-outline-shape-with-rounded-corners_icon-icons.com_56530.svg" className={styles.icon} />e-mail</a></p>
-            <p><a href="www"><img src="src/components/Footer/telegram_icon_131945.svg" className={styles.icon} />Telegram</a></p>
+            <p ><a href="www"><img src={inst} className={styles.icon} />instagramm</a></p>
+            <p><a href="www"><img src={email} className={styles.icon} />e-mail</a></p>
+            <p><a href="www"><img src={tg} className={styles.icon} />Telegram</a></p>
           </div>
         </div>
         <div className={styles.company}>

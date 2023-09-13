@@ -12,6 +12,7 @@ import SignIn from './components/SignUp and SignIn/SignIn'
 import Mainpage from './components/pages/Catalog/Catalog'
 import Homepage from './components/pages/Homepage/Homepage'
 import Profile from './components/Profile/Profile'
+import OneMarkPage from './components/pages/OneMarkPage/OneMarkPage'
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Homepage/>} />
+        <Route path='/marks/:markId' element={<OneMarkPage/>} />
         <Route path="/cars/:carId" element={<OneCarPage />} />
         <Route path='/marks' element={<Markpage />} />
         <Route path='/SignUp' element={<SignUp />} />
