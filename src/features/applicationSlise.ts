@@ -102,18 +102,15 @@ export const applicationSlice = createSlice({
       .addCase(authSignIn.pending, (state) => {
         state.signingIn = true;
         state.error = null;
-        state.loading = true
       })
       .addCase(authSignIn.rejected, (state, action) => {
         state.signingIn = false;
         state.error = action.payload;
-        state.loading = false
       })
       .addCase(authSignIn.fulfilled, (state, action) => {
         state.signingIn = false;
-        state.error = null;
+        state.error = action.payload
         state.token = action.payload.token;
-        state.loading = false
       });
   },
 })
