@@ -14,8 +14,6 @@ const SignIn = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  console.log(token);
-
   const handleSignUp = (e: React.FormEvent): void => {
     e.preventDefault();
     dispatch(authSignIn({ _id: "", password, login}));
@@ -35,7 +33,7 @@ const SignIn = () => {
           />
           <br />
           <input
-            type="text"
+            type="password"
             value={password}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
