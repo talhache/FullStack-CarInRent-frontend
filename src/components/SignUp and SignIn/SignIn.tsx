@@ -10,22 +10,24 @@ const SignIn = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const token = useSelector((state: RootState) => state.application.token);
+  const error = useSelector((state: RootState) => state.application.error)
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  console.log(token);
-
   const handleSignUp = (e: React.FormEvent): void => {
-    e.preventDefault();
-    dispatch(authSignIn({ _id: "", password, login}));
-    navigate("/");
-  }; 
+    e.preventDefault()
+    dispatch(authSignIn({ _id: "", password, login }));
 
+  };
+  if (token) {
+    navigate("/");
+  }
 
   return (
     <div className={styles.author}>
       <div className={styles.authorinput}>
+      {error && <div style={{ color: "red" }}>Неверный логин или пароль</div>}
         <form onSubmit={handleSignUp}>
           <input
             type="text"
@@ -35,12 +37,12 @@ const SignIn = () => {
           />
           <br />
           <input
-            type="text"
+            type="password"
             value={password}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <br/>
+          <br />
           <button type="submit">login</button>
         </form>
       </div>

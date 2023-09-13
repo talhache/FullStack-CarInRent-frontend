@@ -25,6 +25,9 @@ const initialState: RegistrState = {
   token: localStorage.getItem("token"),
 };
 
+
+
+
 export const authSignUp = createAsyncThunk<string | number, User>(
   "auth/signup",
   async ({ login, password, email }, thunkAPI) => {
@@ -48,12 +51,6 @@ export const authSignUp = createAsyncThunk<string | number, User>(
     }
   }
 );
-
-export const oneUser = createAsyncThunk('user/fetchUser', async (data, thunkAPI) => {
-  const res = await fetch('http://localhost:4444/user')
-  const todo = await res.json()
-  return todo
-})
 
 export const authSignIn = createAsyncThunk<string | number, User>(
   "auth/signin",
@@ -102,18 +99,15 @@ export const applicationSlice = createSlice({
       .addCase(authSignIn.pending, (state) => {
         state.signingIn = true;
         state.error = null;
-        state.loading = true
       })
       .addCase(authSignIn.rejected, (state, action) => {
         state.signingIn = false;
         state.error = action.payload;
-        state.loading = false
       })
       .addCase(authSignIn.fulfilled, (state, action) => {
         state.signingIn = false;
-        state.error = null;
+        state.error = action.payload
         state.token = action.payload.token;
-        state.loading = false
       });
   },
 })

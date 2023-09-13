@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store';
-import { oneUser } from '../../features/applicationSlise';
+import { oneUser } from '../../features/userSlice';
 
 const Profile = () => {
-  const user = useSelector((state: RootState) => state.application.users); // Получаем информацию о пользователе из Redux
+  const user = useSelector((state: RootState) => state.user.users); // Получаем информацию о пользователе из Redux
   const dispatch = useDispatch<AppDispatch>()
-
+  console.log(user)
+  
   useEffect(() => {
     dispatch(oneUser())
   })
@@ -14,11 +15,13 @@ const Profile = () => {
   return (
     <div>
       <h2>Личный кабинет</h2>
-        <div>
+
+          <div>
           <p>Имя: {user.login}</p>
           <p>Email: {user.email}</p>
           {/* Другие данные о пользователе */}
         </div>
+
 
     </div>
   );
