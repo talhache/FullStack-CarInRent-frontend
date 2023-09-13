@@ -9,18 +9,36 @@
     width: 15vw;
     height: 10%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    margin: 5px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    box-sizing: border-box;
 }
-.marksImg {
-    background-color: black;
+
+.marksBlock p {
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.marksImg img {
     width: 100%;
-    
+    height: 150px;
+    object-fit: contain;
 }
 
 .marksContainer_cont {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+.findMark {
+    padding: 0 5px;
 }
