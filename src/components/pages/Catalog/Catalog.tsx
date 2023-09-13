@@ -40,7 +40,7 @@ const MainPage: React.FC = () => {
         type="text"
         value={searchQuery}
         onChange={handleSearchChange}
-        placeholder="Поиск..."
+        placeholder="Найди свою мечту..."
       />
 
 
