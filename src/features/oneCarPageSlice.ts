@@ -135,16 +135,12 @@ export const oneCarPageSlice = createSlice({
         state.car = action.payload; 
       }) 
       .addCase(fetchReviews.fulfilled, (state, action) => { 
-        console.log(action.payload); 
+        // console.log(action.payload); 
  
         state.reviews = action.payload; 
       }) 
  
       .addCase(deletedReviews.fulfilled, (state, action) => { 
-        console.log(state.reviews); 
-        console.log(action.payload); 
-         
-         
         state.reviews = state.reviews.filter((item) => item._id !== action.payload) 
       }) 
       .addCase(patchReviews.fulfilled, (state, action) => { 
