@@ -25,6 +25,9 @@ const initialState: RegistrState = {
   token: localStorage.getItem("token"),
 };
 
+
+
+
 export const authSignUp = createAsyncThunk<string | number, User>(
   "auth/signup",
   async ({ login, password, email }, thunkAPI) => {
