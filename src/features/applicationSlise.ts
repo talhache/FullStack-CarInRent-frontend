@@ -5,6 +5,7 @@ type User = {
   login: string;
   password: string;
   email: string;
+  
 };
 
 type RegistrState = {
@@ -24,8 +25,6 @@ const initialState: RegistrState = {
   loading: false,
   token: localStorage.getItem("token"),
 };
-
-
 
 
 export const authSignUp = createAsyncThunk<string | number, User>(
@@ -91,7 +90,7 @@ export const applicationSlice = createSlice({
         state.error = action.payload;
         state.loading = false
       })
-      .addCase(authSignUp.fulfilled, (state) => {
+      .addCase(authSignUp.fulfilled, (state, action) => {   
         state.signingUp = false;
         state.error = null;
         state.loading = false
