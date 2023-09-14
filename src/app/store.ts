@@ -4,6 +4,7 @@ import { oneCarPageSlice } from '../features/oneCarPageSlice'
 import modelsSlice from "../features/modelsSlice";
 import marksSlice from "../features/marksSlice";
 import userSlice from "../features/userSlice";
+import compareSlice from "../features/compareSlice";
 
 
 
@@ -13,7 +14,8 @@ export const store = configureStore({
         oneCarPage: oneCarPageSlice.reducer,
         Cars: modelsSlice,
         marks: marksSlice,
-        user: userSlice
+        user: userSlice,
+        compareCars: compareSlice
     },
 })
 

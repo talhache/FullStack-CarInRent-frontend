@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './CompareCar.module.css'
+import CompareTwoCar from './CompareCar/CompareCar';
 
 const CompareCar = () => {
     return (
         <div>
-            <div>
+            {/* <div>
                 <p>Сравнение автомобилей</p>
             </div>
             <div>
@@ -19,6 +20,9 @@ const CompareCar = () => {
                 <div>
                     
                 </div>
+            </div> */}
+            <div>
+                <CompareTwoCar/>
             </div>
         </div>
     );
