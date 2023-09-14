@@ -35,8 +35,9 @@ const Markpage = () => {
                 <input
                     type="text"
                     value={searchQuery}
-                    placeholder='Поиск по Маркам'
-                    onChange={handleSearchChange} />
+                    placeholder='Выберите марку'
+                    onChange={handleSearchChange} 
+                    className={styles.findMark_input}/>
             </div>
             <div className={styles.marksContainer_cont}>
                 {filteredCars.map((mark) => (
