@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
-import { act } from "react-dom/test-utils";
+//import { act } from "react-dom/test-utils";
 
 type Car = {
   _id: string | number;
@@ -108,12 +108,9 @@ export const addReviews = createAsyncThunk<
   }
 });
 
-export const deletedReviews = createAsyncThunk<
-string, 
-Reviews,
-{ rejectValue: unknown; state: RootState}
->
-("comments/deletedComments",
+export const deletedReviews = createAsyncThunk<string, string,{ rejectValue: unknown; state: RootState}>(
+  
+  "comments/deletedComments",
   async ( id, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:4444/reviews/${id}`, {

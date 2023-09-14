@@ -7,17 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../app/store";
 
 const SignIn = () => {
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const token = useSelector((state: RootState) => state.application.token);
-  const error = useSelector((state: RootState) => state.application.error)
+  const error = useSelector((state: RootState) => state.application.error as string)
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const handleSignUp = (e: React.FormEvent): void => {
     e.preventDefault()
-    dispatch(authSignIn({ _id: "", password, login }));
+    dispatch(authSignIn({ _id: "", password, login, email: "" }));
 
   };
   if (token) {

@@ -5,6 +5,7 @@ import { deleteUser, oneUser } from '../../features/userSlice';
 import { useNavigate } from 'react-router-dom';
 import styles from './Profile.module.css'
 
+
 const Profile = () => {
   const user = useSelector((state: RootState) => state.user.users); // Получаем информацию о пользователе из Redux
   const dispatch = useDispatch<AppDispatch>()
@@ -14,10 +15,10 @@ const Profile = () => {
  
 
   useEffect(() => {
-    function parseJWT(token) {
-      let base64Url = token.split(".")[1];
-      let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-      let jsonPayload = decodeURIComponent(
+    function parseJWT(token: string) {
+      const  base64Url = token.split(".")[1];
+      const  base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const  jsonPayload = decodeURIComponent(
         atob(base64)
           .split("")
           .map(function (c) {
@@ -31,7 +32,7 @@ const Profile = () => {
     dispatch(oneUser(id))
   },[])
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     dispatch(deleteUser(id))
     localStorage.removeItem('token')
     window.location.reload()
