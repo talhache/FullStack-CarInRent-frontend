@@ -23,7 +23,7 @@ const initialState: RegistrState = {
   signingUp: false,
   signingIn: false,
   loading: false,
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem("token") as string | null
 };
 
 

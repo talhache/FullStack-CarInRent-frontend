@@ -16,6 +16,7 @@ import OneMarkPage from './components/pages/OneMarkPage/OneMarkPage'
 import CompareCar from './components/pages/CompareCarePage/CompareCar'
 import VideoPlayer from './components/pages/OneCarPage/OneCarPage.tsx';
 
+
 const App = () => {
   const loading = useSelector((state: RootState) => state.application.loading) //взял лоадинг из слайса
 

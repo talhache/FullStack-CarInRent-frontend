@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-interface Model {
+type Model = {
   _id: string;
   img: string;
   name: string;
@@ -13,11 +13,18 @@ interface Model {
   
 }
 
-interface ModelsState {
+type ModelsState = {
   models: Model[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
+  error: null | unknown | string
 }
+
+
+const initialState: ModelsState = {
+  models: [],
+  status: 'idle',
+  error: null,
+};
 
 export const fetchModels = createAsyncThunk<Model[], void>(
   'models/fetchModels',
@@ -31,11 +38,6 @@ export const fetchModels = createAsyncThunk<Model[], void>(
   }
 );
 
-const initialState: ModelsState = {
-  models: [],
-  status: 'idle',
-  error: null,
-};
 
 const modelsSlice = createSlice({
   name: 'models',

@@ -16,9 +16,13 @@ const MainPage: React.FC = () => {
     setSearchQuery(e.target.value);
   };
 
-  const filteredCars = models.filter(car =>
+  let randomModels = [...models]; // Копируем массив, чтобы не менять оригинал
+  randomModels = randomModels.sort(() => Math.random() - 0.5);
+
+  const filteredCars = randomModels.filter(car =>
     car.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
 
   useEffect(() => {
     if (status === 'idle') {
@@ -53,12 +57,13 @@ const MainPage: React.FC = () => {
             key={model._id}
             img={model.img}
             name={model.name}
+            mark={model.mark.mark}
             price={model.price}
             description={model.description}
             capacity={model.capacity}
             carsId={model._id}
             className={`${styles.carCard} ${isActive ? styles.visible : ''}`}
-          />
+          /> 
         </Suspense>
       ))}
     </div>

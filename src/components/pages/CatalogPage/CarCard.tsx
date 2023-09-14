@@ -15,7 +15,7 @@ interface CarCardProps {
   capacity: number;
 }
 
-const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capacity, carsId }) => {
+const CarCard: React.FC<CarCardProps> = ({ img, name, mark, price, description, capacity, carsId }) => {
   const dispatch = useDispatch()
 
   const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
@@ -28,20 +28,22 @@ const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capaci
     <>
       <Grid className={styles.carCard}>
         <Grid item xs={12} sm={4}>
-          <img className={styles.imgCar} src={`http://localhost:4444/assets/img/${img}`} alt={name} />
+          <div className={styles.imgCont}>
+            <img className={styles.imgCar} src={`http://localhost:4444/assets/img/${img}`} alt={name} />
+          </div>
         </Grid>
         <Grid item xs={12} sm={8} className={styles.info}>
-          <div><h2>{name}</h2></div>
-          <div>Price: {price}</div>
+          <div><h2>{name}</h2><p>{mark}</p></div>
+          <div>Цена: {price} $</div>
           <div>{shortDescription}</div>
-          <div>Capacity: {capacity}</div>
+          <div>Вместительность: {capacity}</div>
         </Grid>
         <div className={styles.compareIconContainer}>
-            <Tooltip title="Сравнить" placement="top">
-              <IconButton onClick={() => handleAddToCompare({_id})}>
-                <CompareIcon className={styles.compareIcon}/>
-              </IconButton>
-            </Tooltip>
+          <Tooltip title="Сравнить" placement="top">
+            <IconButton onClick={() => handleAddToCompare({ _id })}>
+              <CompareIcon className={styles.compareIcon} />
+            </IconButton>
+          </Tooltip>
 
           <Link to={`/cars/${carsId}`}>
             <Tooltip title="Арендовать" placement="top">

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 export interface MarksCar {
     _id: string,
@@ -42,8 +42,8 @@ export const marksSlice = createSlice({
                 state.error = null;
                 state.loading = false
             })
-            .addCase(fetchMarks.rejected, (state, action) => {
-                state.error = action.payload.message;
+            .addCase(fetchMarks.rejected, (state, action: PayloadAction<unknown>) => {
+                state.error = action.payload.message
                 state.loading = false
             })
             .addCase(fetchMarks.pending, (state) => {

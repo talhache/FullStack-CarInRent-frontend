@@ -1,15 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./OneCarPage.module.css";
-
+import RentForm from './RentForm';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  getCarById,
-  patchReviews,
-  addReviews,
-  fetchReviews,
-  deletedReviews,
-} from "../../../features/oneCarPageSlice";
+import { getCarById, patchReviews, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 
 const OneCarPage = () => {
@@ -17,8 +11,30 @@ const OneCarPage = () => {
   const cars = useSelector((state: RootState) => state.oneCarPage.car);
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
   const token = useSelector((state: RootState) => state.application.token);
-  const user = useSelector((state: RootState) => state.user);
   const [review, setReviews] = React.useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    city: '',
+    rentalDate: '',
+    phoneNumber: '',
+    paymentMethod: '',
+  });
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   function parseJWT(token) {
     if (typeof token !== "string") {
@@ -67,8 +83,6 @@ const OneCarPage = () => {
   }, [dispatch]);
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
-  console.log(reviews);
-  
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 
@@ -89,12 +103,19 @@ const OneCarPage = () => {
               frameBorder="0"
               allowFullScreen
             ></iframe>
+          <button onClick={openModal}>Арендовать</button>
+          <RentForm
+            isOpen={isModalOpen}
+            closeModal={closeModal}
+            formData={formData}
+            handleInputChange={handleInputChange}
+          />
         </div>
         <div className={styles.carInfo}>
-          <div className={styles.carName}>{cars.name}</div>
-          <div className={styles.carPrice}>{cars.price}</div>
-          <div className={styles.carDescription}>{cars.description}</div>
-          <div className={styles.carCapacity}>{cars.capacity}</div>
+          <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
+          <div className={styles.carPrice}>{`Цена: ${cars.price}`}</div>
+          <div className={styles.carDescription}>{`Описание: ${cars.description}`}</div>
+          <div className={styles.carCapacity}>{`Вместительность: ${cars.capacity}`}</div>
         </div>
       </div>
 

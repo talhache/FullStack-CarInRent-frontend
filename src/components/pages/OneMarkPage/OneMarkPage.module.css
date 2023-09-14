@@ -1,77 +1,80 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
 .carCard {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 8px;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.2),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url("1616613249_42-p-avtomobilnii-fon-45.jpg");
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    transition: opacity 0.3s ease;
-  }
-  
-  .carCard:hover {
-    opacity: 0.7;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Добавляем тень при наведении */
-    transform: translateY(-2px);
-  }
-  
-  .info {
-    flex-grow: 1;
-    /* Занимаем все доступное пространство */
-    color: black;
-  }
-  
-  h2 {
-    margin: 0;
-  }
-  
-  .imgCar {
-    max-width: 200px;
-    /* Максимальная ширина изображения */
-    margin: 5px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ccc;
-  }
-  
-  .imgCar:hover {
-    transform: scale(1.1);
-    /* Увеличиваем изображение при наведении */
-    filter: brightness(90%);
-  }
-  
-  .link {
-    display: block;
-    margin-top: 10px;
-    text-decoration: none;
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 16px;
-    text-align: center;
-  }
-  
-  .link:hover {
-    background-color: #0056b3;
-  }
-  
-  .compareIcon {
-    position: relative;
-    bottom: 30px;
-    left: 160px;
-    cursor: pointer;
-    color: rgb(4, 69, 74);
-  }
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  transition: 0.2s;
+  height: 30%;
+  box-sizing: border-box;
+}
+
+.carCard:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  /* Добавляем тень при наведении */
+  transition: 0.2s;
+  transform: translateY(-2px); 
+}
+
+.info {
+  flex-grow: 1;
+  /* Занимаем все доступное пространство */
+  color: black;
+}
+
+h2 {
+  margin: 0;
+}
+
+.imgCar {
+  width: 200px;
+  /* Максимальная ширина изображения */
+  margin: 5px;
+  object-fit: cover;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+  transition: 0.2s;
+}
+
+.imgCar:hover {
+  transform: scale(1.03);
+  transition: 0.2s;
+  /* Увеличиваем изображение при наведении */
+}
+
+.link {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.link:hover {
+  background-color: #0056b3;
+}
+
+.compareIcon {
+  position: relative;
+  bottom: 30px;
+  left: 160px;
+  cursor: pointer;
+  color: rgb(4, 69, 74);
+}

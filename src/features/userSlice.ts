@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+// import axios from "axios";
 
 type User = {
-  _id: string;
+  _id?: string;
   login: string;
   password: string;
   email: string;
@@ -24,7 +24,7 @@ const userState: userInfoState = {
 
 export const oneUser = createAsyncThunk(
   "user/fetchUser",
-  async (id, thunkAPI) => {
+  async (id) => {
     const res = await fetch(`http://localhost:4444/user/${id}`);
     const todo = await res.json();
     return todo;
