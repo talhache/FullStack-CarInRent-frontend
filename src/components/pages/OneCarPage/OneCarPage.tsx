@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./OneCarPage.module.css";
+import RentForm from './RentForm';
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -19,6 +20,32 @@ const OneCarPage = () => {
   const token = useSelector((state: RootState) => state.application.token);
   const user = useSelector((state: RootState) => state.user);
   const [review, setReviews] = React.useState("");
+
+  /////////////////////////////////////////////// Функции аренды
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    city: '',
+    rentalDate: '',
+    phoneNumber: '',
+    paymentMethod: '',
+  });
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  //////////////////////////////////////////////////////////
 
   function parseJWT(token) {
     if (typeof token !== "string") {
@@ -68,7 +95,7 @@ const OneCarPage = () => {
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
   console.log(reviews);
-  
+
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 
@@ -81,6 +108,14 @@ const OneCarPage = () => {
             src={`http://localhost:4444/assets/img/${cars.img}`}
             alt="car"
           />
+          <button onClick={openModal}>Арендовать</button>
+          <RentForm
+            isOpen={isModalOpen}
+            closeModal={closeModal}
+            formData={formData}
+            handleInputChange={handleInputChange}
+          />
+
         </div>
         <div className={styles.carInfo}>
           <div className={styles.carName}>{cars.name}</div>
