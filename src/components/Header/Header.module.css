@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(231, 231, 231);
-    width: 80%;
+    background-color: #2a2d78;
+    width: 90%;
     height: 60px;
     border-radius: 0 0 10px 10px;
     padding: 0 10px;
@@ -22,7 +22,7 @@
 .button {
     background-color: transparent;
     border: none;
-    color: black;
+    color: rgb(255, 255, 255);
     width: 100px;
     height: 50px;
     font-size: 18px;
@@ -40,9 +40,9 @@
 
 .buttonExit {
     background-color: transparent;
-    border: 1px solid blue ;
     border-radius: 10px;
-    color: black;
+    border:none;
+    color: rgb(255, 255, 255);
     width: 100px;
     height: 50px;
     font-size: 18px;
