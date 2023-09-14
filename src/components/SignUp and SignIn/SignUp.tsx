@@ -8,10 +8,10 @@ import styles from "./Sign.module.css";
 const SignUp = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState<string>("");
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailDirty, setEmailDirty] = useState(false);
-  const [emailError, setEmailError] = useState('Введите емайл');
+  const [emailError, setEmailError] = useState<string>('Введите емайл');
   const [passwordError, setPasswordError] = useState('Введите пароль');
   const [formValid, setFormValid] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
@@ -32,7 +32,7 @@ const SignUp = () => {
 
   const navigate = useNavigate()
 
-  const handleEmail = (e) => {
+  const handleEmail = (e:React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
     const valid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!valid.test(String(e.target.value).toLocaleLowerCase())) {
@@ -42,7 +42,7 @@ const SignUp = () => {
     }
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = (e:React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
     if (e.target.value.length < 3) {
       setPasswordError('давай еще')
@@ -55,7 +55,7 @@ const SignUp = () => {
 
   }
 
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'email':
         setEmailDirty(true)

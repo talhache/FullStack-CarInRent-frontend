@@ -6,20 +6,22 @@ import { Link } from 'react-router-dom'
 import CompareIcon from '@mui/icons-material/Compare';
 import { Tooltip, IconButton } from '@mui/material';
 import styles from './OneMarkPage.module.css'
+import { AppDispatch, RootState } from '../../../app/store';
+
 
 
 const OneMarkPage = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
         dispatch(fetchModels())
-    }, [])
+    }, [dispatch])
 
     const cars = useSelector((state: RootState) => state.Cars)
-    const { markId } = useParams()
+    const { markId } = useParams();
     const filteredCars = cars.models.filter((car) => car.mark._id === markId)
 
-    const handleCompareClick = (e) => {
+    const handleCompareClick = (e:React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
     }
 
@@ -32,7 +34,7 @@ const OneMarkPage = () => {
                         <div className={styles.info}>
                             <div><h2>{car.name}</h2></div>
                             <div>Price: {car.price}</div>
-                            <div>{car.shortDescription}</div>
+                            <div>{car.description}</div>
                             <div>Capacity: {car.capacity}</div>
                         </div>
                         <Link to={`/cars/compare/${car._id}`} >
