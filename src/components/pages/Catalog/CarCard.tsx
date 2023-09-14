@@ -27,7 +27,7 @@ const handleRentClick = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capacity, carsId }) => {
   const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
-  // Зеламх
+  // Зеламхfy
 
 
   return (
