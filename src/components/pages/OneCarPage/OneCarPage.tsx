@@ -95,6 +95,14 @@ const OneCarPage = () => {
             src={`http://localhost:4444/assets/img/${cars.img}`}
             alt="car"
           />
+                     <iframe
+              title="YouTube Video"
+              width="300"
+              height="300"
+              src={cars.video}
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
           <button onClick={openModal}>Арендовать</button>
           <RentForm
             isOpen={isModalOpen}
@@ -102,7 +110,6 @@ const OneCarPage = () => {
             formData={formData}
             handleInputChange={handleInputChange}
           />
-
         </div>
         <div className={styles.carInfo}>
           <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
