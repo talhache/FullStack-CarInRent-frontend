@@ -17,6 +17,7 @@ const OneCarPage = () => {
   const cars = useSelector((state: RootState) => state.oneCarPage.car);
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
   const token = useSelector((state: RootState) => state.application.token);
+  const user = useSelector((state: RootState) => state.user)
   const [review, setReviews] = React.useState("");
 
   function parseJWT(token) {
@@ -36,21 +37,28 @@ const OneCarPage = () => {
     );
     return JSON.parse(jsonPayload).id;
   }
-  const id = parseJWT(token);
+  const ownid = parseJWT(token);
+
 
   const handleSendReviews = (review: string) => {
-    dispatch(addReviews({ review, carId, userId: id }));
+    
+    dispatch(addReviews({ review, carId, userId: ownid }));
     setReviews("");
   };
 
   const { carId } = useParams();
-
   const handleOnChangeTextArea = (text: string) => {
     setReviews(text);
   };
 
-  const handleDeleteReviews = (_id) => {
-    dispatch(deletedReviews({ _id, carId }));
+
+
+  const handleDeleteReviews = (id, userer) => {
+    reviews.map(item => {
+      if(ownid == userer){      
+        dispatch(deletedReviews(id))
+      }
+    })
   };
 
   React.useEffect(() => {
@@ -60,7 +68,6 @@ const OneCarPage = () => {
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
 
-
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 
   return (
@@ -69,7 +76,7 @@ const OneCarPage = () => {
         <div className={styles.carImg}>
           <img
             width={500}
-            src={`http://localhost:4444/assets/img/${cars.img}`} 
+            src={`http://localhost:4444/assets/img/${cars.img}`}
             alt="car"
           />
         </div>
@@ -86,18 +93,21 @@ const OneCarPage = () => {
 
         {reviews.map((item, index) => {
           if (item.cars === cars._id) {
+
+            const isCurrentUserComment = item.user?._id === ownid;
             return (
               <div className={styles.review} key={index}>
                 <div className={styles.reviewUser}>{item.user?.login}</div>
                 <div className={styles.reviewText}>{item.text}</div>
                 <div className={styles.reviewFilter}>{reviewCar.item}</div>
-                {console.log(item.user)}
+                {isCurrentUserComment && (
                 <button
                   className={styles.reviewButton}
-                  onClick={() => handleDeleteReviews(item._id)}
+                  onClick={() => handleDeleteReviews(item._id, item.user._id)}
                 >
                   x
                 </button>
+                )}
               </div>
             );
           }
@@ -120,6 +130,5 @@ const OneCarPage = () => {
     </div>
   );
 };
-
 
 export default OneCarPage;

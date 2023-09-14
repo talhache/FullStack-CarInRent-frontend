@@ -1,0 +1,126 @@
+/* OneCarPage.module.css */
+
+/* Основной контейнер страницы */
+.oneCarPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+  }
+/* 
+  .reviewButton {
+    display: none;
+  } */
+  
+  /* Стили для блока с информацией о машине */
+  .carImg img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .carInfo {
+    max-width: 100%;
+  }
+  
+  .carName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .carPrice {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007BFF; /* Цвет акцента (можно заменить) */
+    margin-bottom: 10px;
+  }
+  
+  .carDescription {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .carCapacity {
+    font-size: 16px;
+  }
+  
+  /* Стили для блока с комментариями */
+  .reviews {
+    grid-column: 1 / span 2;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  /* Заголовок "Комментарии" */
+  .reviews span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Отзывы */
+  .review {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .reviewUser {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .reviewText {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .reviewFilter {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .reviewButton {
+    background-color: #dc3545; /* Красный цвет для кнопки удаления (можно заменить) */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  /* Оставить комментарий */
+  .addReviewsText {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .sendReviews button {
+    background-color: #007BFF; /* Цвет акцента (можно заменить) */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .sendReviews button:disabled {
+    background-color: #ccc; /* Цвет отключенной кнопки (можно заменить) */
+    cursor: not-allowed;
+  }

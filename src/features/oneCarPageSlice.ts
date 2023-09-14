@@ -53,6 +53,8 @@ export const fetchReviews = createAsyncThunk(
       const car = await res.json();
 
       return car;
+      
+      
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -112,9 +114,9 @@ Reviews,
 { rejectValue: unknown; state: RootState}
 >
 ("comments/deletedComments",
-  async ( {_id}, thunkAPI) => {
+  async ( id, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:4444/reviews/${_id}`, {
+      const res = await fetch(`http://localhost:4444/reviews/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -122,8 +124,9 @@ Reviews,
         },
       });
       if (res.ok) {
-        return _id;
+        return id;
       }
+      //return _id
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -151,13 +154,13 @@ export const oneCarPageSlice = createSlice({
         state.reviews = action.payload;
       })
       .addCase(addReviews.fulfilled, (state, action) => {
-        console.log(action.payload[0]);
         
-        state.reviews.push(action.payload);
+        state.reviews.push(action.payload[0]);
+        console.log(action.payload);
         
         
-      });
-  },
-});
+        });
+    },
+  });
 
-export default oneCarPageSlice.reducer;
+  export default oneCarPageSlice.reducer;
