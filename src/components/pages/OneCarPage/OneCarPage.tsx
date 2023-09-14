@@ -83,7 +83,6 @@ const OneCarPage = () => {
   }, [dispatch]);
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
-  console.log(reviews);
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 

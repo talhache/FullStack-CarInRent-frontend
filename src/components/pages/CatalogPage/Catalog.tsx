@@ -63,7 +63,7 @@ const MainPage: React.FC = () => {
             capacity={model.capacity}
             carsId={model._id}
             className={`${styles.carCard} ${isActive ? styles.visible : ''}`}
-          />
+          /> 
         </Suspense>
       ))}
     </div>

@@ -21,21 +21,25 @@ const OneMarkPage = () => {
     const { markId } = useParams();
     const filteredCars = cars.models.filter((car) => car.mark._id === markId)
 
-    const handleCompareClick = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const handleCompareClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             {filteredCars.map((car) => {
                 return (
-                    <div className={styles.carCard}>
+                    <div className={styles.carCard} key={car._id}>
                         <div><img className={styles.imgCar} src={`http://localhost:4444/assets/img/${car.img}`} /></div>
                         <div className={styles.info}>
                             <div><h2>{car.name}</h2></div>
-                            <div>Price: {car.price}</div>
-                            <div>{car.description}</div>
-                            <div>Capacity: {car.capacity}</div>
+                            <div>Цена: {car.price} $</div>
+                            <div>
+                                <p id={styles.desc}>
+                                    {car.description}
+                                </p>
+                            </div>
+                            <div>Вместительность: {car.capacity}</div>
                         </div>
                         <Link to={`/cars/compare/${car._id}`} >
                             <div className={styles.compareIconContainer}>
