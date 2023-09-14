@@ -5,8 +5,6 @@ import CompareIcon from '@mui/icons-material/Compare';
 import { Tooltip, IconButton, Grid } from '@mui/material';
 import CarRentalIcon from '@mui/icons-material/CarRental';
 
-
-
 interface CarCardProps {
   carsId: string,
   img: string;
@@ -16,19 +14,8 @@ interface CarCardProps {
   capacity: number;
 }
 
-const handleCompareClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-  e.stopPropagation();
-}
-
-const handleRentClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-  e.stopPropagation();
-}
-
-
 const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capacity, carsId }) => {
   const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
-  // Зеламх
-
 
   return (
     <>

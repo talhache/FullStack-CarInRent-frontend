@@ -71,3 +71,40 @@ h2 {
   margin-top: 10px;
   margin-left: 20px;
 }
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Добавляем стили для searchInput */
+.searchInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+/* Стили для активного (focused) инпута */
+.active {
+  background-color: #f9f9f9; /* Любой подходящий вам цвет фона */
+}
+
+/* Стили для видимой карточки */
+.visible {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
