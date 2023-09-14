@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store';
 import { deleteUser, oneUser } from '../../features/userSlice';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import styles from './Profile.module.css'
 
 const Profile = () => {
   const user = useSelector((state: RootState) => state.user.users); // Получаем информацию о пользователе из Redux
@@ -40,12 +41,12 @@ const Profile = () => {
 
   return (
     <div>
-      <h2>Личный кабинет</h2>
-          <div>
-          <p>Имя: {user.login}</p>
-          <p>Email: {user.email}</p>
+        <h2 className={styles.headerText}>Личный кабинет</h2>
+          <div className={styles.card}>
+          <p className={styles.userName}>Имя: {user.login}</p>
+          <p className={styles.userEmail}>Email: {user.email}</p>
+          <button onClick={() => handleDelete(user._id)} className={styles.deletedUserButton}>Удалить пользователя</button>
         </div>  
-        <button onClick={() => handleDelete(user._id)} >Удалить пользователя</button>
     </div>
   );
 };

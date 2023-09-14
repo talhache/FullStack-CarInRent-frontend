@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {  Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from "../../app/store"
 import logo from './carInRent_logo.svg'
@@ -14,18 +14,27 @@ const Header = () => {
         window.location.reload()
     } //Функция по удалению токена
 
-    
     return (
-            <div className={styles.header}>
-                <Link to='/' ><img src={logo} alt="CarInRent" className={styles.home}/></Link>
-                <Link to='/marks' ><button className={styles.button}>Марки</button></Link> 
-                <Link to='/Catalog'> <button className={styles.button}>Каталог</button></Link>
-
-                {token ? 
-                    ( <div><button onClick={removeToken} className={styles.button}>Выйти</button> <Link to='/Profile'><img src={profile} alt='profile' className={styles.button}/></Link></div> ) :
-                    <Link  to='/SignUp'><button className={styles.button}>Вход и регистрация</button></Link>
-                }                
+        <div className={styles.header}>
+            <Link to='/' ><img src={logo} alt="CarInRent" className={styles.home} /></Link>
+            <div className={styles.navigation}>
+                <Link to='/marks' ><button className={styles.button}>МАРКИ</button></Link>
+                <Link to='/Catalog'> <button className={styles.button}>КАТАЛОГ</button></Link>
+                <Link to='/cars/compare'> <button className={styles.button}>СРАВНИТЬ</button></Link>
             </div>
+
+            {token ?
+                (<div>
+                    <button onClick={removeToken} className={styles.buttonExit}>ВЫЙТИ</button>
+                    <Link to='/Profile'>
+                        <img src={profile} alt='profile' className={styles.profile} />
+                    </Link>
+                </div>) :
+                <Link to='/SignUp'>
+                    <button className={styles.button}>Вход и регистрация</button>
+                </Link>
+            }
+        </div>
     )
 }
 

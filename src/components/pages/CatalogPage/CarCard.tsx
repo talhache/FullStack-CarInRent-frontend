@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import CompareIcon from '@mui/icons-material/Compare';
 import { Tooltip, IconButton, Grid } from '@mui/material';
 import CarRentalIcon from '@mui/icons-material/CarRental';
-
-
+import { useDispatch } from 'react-redux';
 
 interface CarCardProps {
   carsId: string,
@@ -16,19 +15,14 @@ interface CarCardProps {
   capacity: number;
 }
 
-const handleCompareClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-  e.stopPropagation();
-}
-
-const handleRentClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-  e.stopPropagation();
-}
-
-
 const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capacity, carsId }) => {
-  const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
-  // Зеламх
+  const dispatch = useDispatch()
 
+  const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
+
+  const handleAddToCompare = (id) => {
+    dispatch(addCarToCompare(id))
+  }
 
   return (
     <>
@@ -43,13 +37,11 @@ const CarCard: React.FC<CarCardProps> = ({ img, name, price, description, capaci
           <div>Capacity: {capacity}</div>
         </Grid>
         <div className={styles.compareIconContainer}>
-          <Link to={`/cars/${carsId}`}>
             <Tooltip title="Сравнить" placement="top">
-              <IconButton >
-                <CompareIcon className={styles.compareIcon} />
+              <IconButton onClick={() => handleAddToCompare({_id})}>
+                <CompareIcon className={styles.compareIcon}/>
               </IconButton>
             </Tooltip>
-          </Link>
 
           <Link to={`/cars/${carsId}`}>
             <Tooltip title="Арендовать" placement="top">
