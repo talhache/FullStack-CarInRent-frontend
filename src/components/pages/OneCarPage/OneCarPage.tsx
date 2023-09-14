@@ -17,7 +17,7 @@ const OneCarPage = () => {
   const cars = useSelector((state: RootState) => state.oneCarPage.car);
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
   const token = useSelector((state: RootState) => state.application.token);
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user);
   const [review, setReviews] = React.useState("");
 
   function parseJWT(token) {
@@ -39,10 +39,12 @@ const OneCarPage = () => {
   }
   const ownid = parseJWT(token);
 
-
   const handleSendReviews = (review: string) => {
-    
-    dispatch(addReviews({ review, carId, userId: ownid }));
+    if (!token) {
+      alert("Вы не авторизованы");
+    } else {
+      dispatch(addReviews({ review, carId, userId: ownid }));
+    }
     setReviews("");
   };
 
@@ -51,14 +53,12 @@ const OneCarPage = () => {
     setReviews(text);
   };
 
-
-
   const handleDeleteReviews = (id, userer) => {
-    reviews.map(item => {
-      if(ownid == userer){      
-        dispatch(deletedReviews(id))
+    reviews.map((item) => {
+      if (ownid == userer) {
+        dispatch(deletedReviews(id));
       }
-    })
+    });
   };
 
   React.useEffect(() => {
@@ -67,6 +67,8 @@ const OneCarPage = () => {
   }, [dispatch]);
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
+  console.log(reviews);
+  
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 
@@ -91,27 +93,33 @@ const OneCarPage = () => {
       <div className={styles.reviews}>
         <span>Коментарии</span>
 
-        {reviews.map((item, index) => {
-          if (item.cars === cars._id) {
+        {reviews.some((item) => item.cars === cars._id) ? (
+          reviews.map((item, index) => {
+            if (item.cars === cars._id) {
+              const isCurrentUserComment = item.user?._id === ownid;
+              return (
+                <div className={styles.review} key={index}>
+                  <div className={styles.reviewUser}>{item.user?.login}</div>
+                  <div className={styles.reviewText}>{item.text}</div>
+                  <div className={styles.reviewFilter}>{reviewCar.item}</div>
+                  {isCurrentUserComment && (
+                    <button
+                      className={styles.reviewButton}
+                      onClick={() =>
+                        handleDeleteReviews(item._id, item.user._id)
+                      }
+                    >
+                      x
+                    </button>
+                  )}
+                </div>
+              );
+            }
+          })
+        ) : (
+          <div className={styles.noComments}>Нет комментариев</div>
+        )}
 
-            const isCurrentUserComment = item.user?._id === ownid;
-            return (
-              <div className={styles.review} key={index}>
-                <div className={styles.reviewUser}>{item.user?.login}</div>
-                <div className={styles.reviewText}>{item.text}</div>
-                <div className={styles.reviewFilter}>{reviewCar.item}</div>
-                {isCurrentUserComment && (
-                <button
-                  className={styles.reviewButton}
-                  onClick={() => handleDeleteReviews(item._id, item.user._id)}
-                >
-                  x
-                </button>
-                )}
-              </div>
-            );
-          }
-        })}
         <div className={styles.addReviewsText}>Оставить коментарии</div>
         <textarea
           name=""

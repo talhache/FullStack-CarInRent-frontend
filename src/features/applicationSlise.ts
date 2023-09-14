@@ -90,7 +90,7 @@ export const applicationSlice = createSlice({
         state.error = action.payload;
         state.loading = false
       })
-      .addCase(authSignUp.fulfilled, (state, action) => {   
+      .addCase(authSignUp.fulfilled, (state) => {   
         state.signingUp = false;
         state.error = null;
         state.loading = false
