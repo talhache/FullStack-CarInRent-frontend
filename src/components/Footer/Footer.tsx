@@ -10,15 +10,15 @@ const Footer = () => {
       <div className={styles.footer}>
         <div className={styles.info}>
           <div className={styles.aboutWe}>
-            <h4>О НАС </h4>
-            <p className={styles.text}> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, cumque voluptatibus cupiditate doloremque ad aut id ipsa eveniet ut temporibus fugiat esse alias, quae repudiandae saepe, maiores harum explicabo aspernatur.</p>
+            <h4 className={styles.h4}>О НАС </h4>
+            <p className={styles.text}> Наш сайт создан от автолюбителей для автолюбителей и совмещает в себе все самые лучшие возможности для выбора конкретной модели автомобиля. А также вы можете выбрать конкретную модель и арендовать ее. Все для ВАС!</p>
           </div>
 
           <div className={styles.contacts}>
-            <h4>КОНТАКТЫ </h4>
-            <p ><a href="www"><img src={inst} className={styles.icon} />instagramm</a></p>
-            <p><a href="www"><img src={email} className={styles.icon} />e-mail</a></p>
-            <p><a href="www"><img src={tg} className={styles.icon} />Telegram</a></p>
+            <h4 className={styles.h4}>КОНТАКТЫ </h4>
+            <p ><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src={inst} className={styles.icon} />Instagramm</a></p>
+            <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src={email} className={styles.icon} />E-mail</a></p>
+            <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src={tg} className={styles.icon} />Telegram</a></p>
           </div>
         </div>
         <div className={styles.company}>

@@ -6,12 +6,7 @@
     padding: 10px;
     margin: 20px;
     border-radius: 8px;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.2),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url("1616613249_42-p-avtomobilnii-fon-45.jpg");
+
     background-size: cover;
     background-position: center;
     border-radius: 10px;

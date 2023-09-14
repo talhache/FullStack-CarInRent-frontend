@@ -1,13 +1,18 @@
+.footer {
+    width: 90%;
+    background-color: #2a2d78;
+    position: sticky;
+    bottom: 0;
+    left: 5%;
+    border-radius: 12px 12px 0 0;
+    padding: 20px 20px 0 20px;
+    box-sizing: border-box;
+}
+
 .info {
     display: flex;
-    justify-content:space-around
+    justify-content:space-between
 }
-
-a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
 
 .icon {
     width: 20px;
@@ -15,18 +20,33 @@ a {
 }
 
 .aboutWe {
-    width: 300px;
+    width: 60%
 }
 
 .company {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.company p {
+    color: white;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
 .text {
-    color: rgb(2, 2, 2) 
+    color: rgb(255, 255, 255) 
 }
 
-.footer {
-    margin-top: auto;
+.h4 {
+    color: white;
+}
+
+.contacts p a {
+    text-decoration: none;
+    color: white;
+}
+
+.contacts {
+    width: 20%;
 }
