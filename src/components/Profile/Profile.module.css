@@ -1,4 +1,10 @@
+.container {
+    width: 50%;
+    margin: auto;
+}
+
 .headerText {
+    margin: 30px 0;
     text-align: center;
     font-size: 32px;
 }

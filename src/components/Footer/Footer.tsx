@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.company}>
-          <p>© АО «CarInRent Автомобильная группа» 2023</p>
+          <p>© АО «CarInRent Автомобильная группа» 2023 г.</p>
         </div>
       </div>
     </>

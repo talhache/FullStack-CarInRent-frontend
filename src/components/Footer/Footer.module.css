@@ -1,6 +1,7 @@
 .footer {
     width: 90%;
-    background-color: #2a2d78;
+    background: rgb(47,45,120);
+    background: linear-gradient(0deg, rgba(47,45,120,1) 0%, rgba(72,68,204,1) 100%);
     position: sticky;
     bottom: 0;
     left: 5%;
