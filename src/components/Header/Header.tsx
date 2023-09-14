@@ -18,9 +18,9 @@ const Header = () => {
         <div className={styles.header}>
             <Link to='/' ><img src={logo} alt="CarInRent" className={styles.home} /></Link>
             <div className={styles.navigation}>
-                <Link to='/marks' ><button className={styles.button}>МАРКИ</button></Link>
-                <Link to='/Catalog'> <button className={styles.button}>КАТАЛОГ</button></Link>
-                <Link to='/cars/compare'> <button className={styles.button}>СРАВНИТЬ</button></Link>
+                <Link to='/marks' ><button className={styles.button}>Марки</button></Link>
+                <Link to='/Catalog'> <button className={styles.button}>Каталог</button></Link>
+                <Link to='/cars/compare'> <button className={styles.button}>Сравнить</button></Link>
             </div>
 
             {token ?

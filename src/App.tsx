@@ -25,18 +25,20 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Homepage/>} />
-        <Route path='/marks/:markId' element={<OneMarkPage/>} />
-        <Route path="/cars/:carId" element={<OneCarPage />} />
-        <Route path='/marks' element={<Markpage />} />
-        <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/SignIn' element={<SignIn />} />
-        <Route path='/Catalog' element={<Mainpage />} />
-        <Route path='/Profile' element={<Profile/>} />
-        {/* <Route path='/cars/compare' element={<CompareCar/>}/> */}
-      </Routes>
+      <div>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/marks/:markId' element={<OneMarkPage />} />
+          <Route path="/cars/:carId" element={<OneCarPage />} />
+          <Route path='/marks' element={<Markpage />} />
+          <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/SignIn' element={<SignIn />} />
+          <Route path='/Catalog' element={<Mainpage />} />
+          <Route path='/Profile' element={<Profile />} />
+          {/* <Route path='/cars/compare' element={<CompareCar/>}/> */}
+        </Routes>
+      </div>
       <Footer />
     </div>
   )

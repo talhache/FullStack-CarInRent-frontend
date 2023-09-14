@@ -1,56 +1,50 @@
-.author{
-    margin: auto;
-    -webkit-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
-    -moz-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
-    box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
-    width: 400px;
-    flex-direction: column;
-    text-align: center;
+.author {
+  margin: auto;
+  -webkit-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
+  -moz-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
+  box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
+  width: 400px;
+  flex-direction: column;
+  text-align: center;
 }
-.authorinput{
-    width: 300px;
-    height: 350px;
-    margin: auto;
-    left: 43%;
-    padding: 50px;
+.authorinput {
+  width: 300px;
+  height: 350px;
+  margin: auto;
+  left: 43%;
+  padding: 50px;
 }
-.authorinput input{
-    margin-top: 5px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid black;
+.authorinput input {
+  margin-top: 5px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
-.authorinput input::placeholder{
-    font-size: 20px;
+.authorinput input::placeholder {
+  font-size: 20px;
 }
-.authorinput button{
-    margin-top: 35px;
-    background-color: black;
-    border: none;
-    height: 30px;
-    font-size: 18px;
-    color: white;
-    border-radius: 5px;
+.authorinput button {
+  margin-top: 35px;
+  background-color: black;
+  border: none;
+  height: 30px;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
 }
 .but {
-    margin-top: 4px;
-    color: black;
+  margin-top: 4px;
+  color: black;
 }
 .sign {
-    text-decoration: none;
-    color: blue;
+  text-decoration: none;
+  color: blue;
 }
 
-button:hover {
-    background-color: #0056b3;
-  }
+.error {
+  color: #ff0000;
+  font-size: 14px;
+}
 
-  .error {
-    color: #ff0000;
-    font-size: 14px;
-  }
-
-  .form {
-   
-  }
-  
+.form {
+}
