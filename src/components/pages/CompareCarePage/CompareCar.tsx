@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './CompareCar.module.css'
-import CompareTwoCar from './CompareCar/CompareCar';
+// import React from 'react';
+// import styles from './CompareCar.module.css'
+// import CompareTwoCar from './CompareCar/CompareCar';
 
-const CompareCar = () => {
-    return (
-        <div>
+// const CompareCar = () => {
+//     return (
+//         <div>
             {/* <div>
                 <p>Сравнение автомобилей</p>
             </div>
@@ -21,11 +21,11 @@ const CompareCar = () => {
                     
                 </div>
             </div> */}
-            <div>
+            {/* <div>
                 <CompareTwoCar/>
             </div>
         </div>
     );
 };
 
-export default CompareCar;
+export default CompareCar; */}

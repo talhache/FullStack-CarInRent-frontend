@@ -1,126 +1,152 @@
 /* OneCarPage.module.css */
 
-/* Основной контейнер страницы */
 .oneCarPage {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    background-color: #fff; /* Белый цвет фона */
     padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-/* 
-  .reviewButton {
-    display: none;
-  } */
   
-  /* Стили для блока с информацией о машине */
+  .car {
+    display: flex;
+    gap: 20px;
+  }
+  
   .carImg img {
+    width: 100%;
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .carInfo {
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
   .carName {
     font-size: 24px;
     font-weight: bold;
+    color: #333; /* Темно-серый цвет текста */
     margin-bottom: 10px;
   }
   
   .carPrice {
     font-size: 18px;
-    font-weight: bold;
-    color: #007BFF; /* Цвет акцента (можно заменить) */
+    color: #007bff; /* Синий цвет текста */
     margin-bottom: 10px;
   }
   
   .carDescription {
     font-size: 16px;
-    margin-bottom: 20px;
+    color: #555; /* Средне-серый цвет текста */
+    margin-bottom: 10px;
+    white-space: pre-line;
   }
   
   .carCapacity {
     font-size: 16px;
+    color: #333; /* Темно-серый цвет текста */
   }
   
-  /* Стили для блока с комментариями */
   .reviews {
-    grid-column: 1 / span 2;
-    margin-top: 20px;
-    width: 100%;
+    grid-column: span 2;
+    background-color: #f8f8f8; /* Светло-серый цвет фона */
+    padding: 20px;
+    border-radius: 8px;
   }
   
-  /* Заголовок "Комментарии" */
-  .reviews span {
-    font-size: 20px;
+  span {
+    font-size: 24px;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
   }
   
-  /* Отзывы */
   .review {
-    margin-top: 20px;
-    border: 1px solid #ddd;
+    background-color: #fff; /* Белый цвет фона */
+    border: 1px solid #ddd; /* Светло-серая рамка */
+    border-radius: 8px;
     padding: 10px;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
   }
   
   .reviewUser {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 5px;
+    color: #333;
   }
   
   .reviewText {
     font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  
-  .reviewFilter {
-    font-size: 12px;
-    color: #777;
+    color: #555;
+    white-space: pre-line;
   }
   
   .reviewButton {
-    background-color: #dc3545; /* Красный цвет для кнопки удаления (можно заменить) */
-    color: #fff;
+    background-color: #ff4444; /* Красный цвет фона кнопки */
+    color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    font-size: 12px;
-    margin-top: 10px;
+    transition: background-color 0.3s ease;
   }
   
-  /* Оставить комментарий */
-  .addReviewsText {
-    font-size: 18px;
-    font-weight: bold;
+  .reviewButton:hover {
+    background-color: #ff0000; /* Более яркий красный цвет при наведении */
+  }
+  
+  .noComments {
+    font-size: 16px;
+    color: #777; /* Светло-серый цвет текста */
+    text-align: center;
     margin-top: 20px;
   }
   
-  .textarea {
+  .addReviewsText {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  textarea {
     width: 100%;
     padding: 10px;
-    font-size: 14px;
-    margin-top: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    resize: none;
   }
   
   .sendReviews button {
-    background-color: #007BFF; /* Цвет акцента (можно заменить) */
-    color: #fff;
+    background-color: #007bff;
+    color: white;
     border: none;
+    border-radius: 8px;
     padding: 10px 20px;
-    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    transition: background-color 0.3s ease;
   }
   
   .sendReviews button:disabled {
-    background-color: #ccc; /* Цвет отключенной кнопки (можно заменить) */
+    background-color: #ccc; /* Серый цвет фона кнопки в отключенном состоянии */
     cursor: not-allowed;
+  }
+  
+  .sendReviews button:hover {
+    background-color: #0056b3; /* Более темно-синий цвет при наведении */
   }
