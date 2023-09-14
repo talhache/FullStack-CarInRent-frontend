@@ -14,7 +14,7 @@ import Homepage from './components/pages/Homepage/Homepage'
 import Profile from './components/Profile/Profile'
 import OneMarkPage from './components/pages/OneMarkPage/OneMarkPage'
 import CompareCar from './components/pages/CompareCarePage/CompareCar'
-
+import VideoPlayer from './components/pages/OneCarPage/OneCarPage.tsx';
 
 const App = () => {
   const loading = useSelector((state: RootState) => state.application.loading) //взял лоадинг из слайса
@@ -37,6 +37,7 @@ const App = () => {
           <Route path='/Catalog' element={<Mainpage />} />
           <Route path='/Profile' element={<Profile />} />
           {/* <Route path='/cars/compare' element={<CompareCar/>}/> */}
+          <Route path='/video' Component={VideoPlayer}></Route>
         </Routes>
       </div>
       <Footer />
