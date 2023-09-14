@@ -21,27 +21,29 @@ const OneMarkPage = () => {
 
     const handleCompareClick = (e) => {
         e.stopPropagation();
-      }
+    }
 
     return (
         <div>
             {filteredCars.map((car) => {
                 return (
                     <div className={styles.carCard}>
-                        <div><img className={styles.imgCar} src={`http://localhost:4444/assets/img/${car.img}`}/></div>
+                        <div><img className={styles.imgCar} src={`http://localhost:4444/assets/img/${car.img}`} /></div>
                         <div className={styles.info}>
                             <div><h2>{car.name}</h2></div>
                             <div>Price: {car.price}</div>
                             <div>{car.shortDescription}</div>
                             <div>Capacity: {car.capacity}</div>
                         </div>
-                        <div className={styles.compareIconContainer}>
-                            <Tooltip title="Сравнить" placement="top">
-                                <IconButton onClick={handleCompareClick}>
-                                    <CompareIcon className={styles.compareIcon} />
-                                </IconButton>
-                            </Tooltip>
-                        </div>
+                        <Link to={`/cars/compare/${car._id}`} >
+                            <div className={styles.compareIconContainer}>
+                                <Tooltip title="Сравнить" placement="top">
+                                    <IconButton onClick={handleCompareClick}>
+                                        <CompareIcon className={styles.compareIcon} />
+                                    </IconButton>
+                                </Tooltip>
+                            </div>
+                        </Link>
                         <Link to={`/cars/${car._id}`} className={styles.link}>Перейти к модели</Link>
                     </div>
                 )
