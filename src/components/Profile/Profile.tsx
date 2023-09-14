@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store';
 import { deleteUser, oneUser } from '../../features/userSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const user = useSelector((state: RootState) => state.user.users); // Получаем информацию о пользователе из Redux
@@ -34,10 +34,8 @@ const Profile = () => {
     dispatch(deleteUser(id))
     localStorage.removeItem('token')
     window.location.reload()
-  }
-
-  if(handleDelete) {
     navigate('/')
+    location.reload()
   }
 
   return (
