@@ -69,7 +69,8 @@ const OneCarPage = () => {
         <div className={styles.carImg}>
           <img
             width={500}
-            src={`http://localhost:4444/assets/img/${cars.img}`}
+            src={`http://localhost:4444/assets/img/${cars.img}`} 
+            alt="car"
           />
         </div>
         <div className={styles.carInfo}>
@@ -119,5 +120,6 @@ const OneCarPage = () => {
     </div>
   );
 };
+
 
 export default OneCarPage;
