@@ -13,6 +13,7 @@ import Mainpage from './components/pages/CatalogPage/Catalog'
 import Homepage from './components/pages/Homepage/Homepage'
 import Profile from './components/Profile/Profile'
 import OneMarkPage from './components/pages/OneMarkPage/OneMarkPage'
+import CompareCar from './components/pages/CompareCarePage/CompareCar'
 
 
 const App = () => {
