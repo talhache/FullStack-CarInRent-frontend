@@ -83,10 +83,10 @@ const OneCarPage = () => {
           />
         </div>
         <div className={styles.carInfo}>
-          <div className={styles.carName}>{cars.name}</div>
-          <div className={styles.carPrice}>{cars.price}</div>
-          <div className={styles.carDescription}>{cars.description}</div>
-          <div className={styles.carCapacity}>{cars.capacity}</div>
+          <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
+          <div className={styles.carPrice}>{`Цена: ${cars.price}`}</div>
+          <div className={styles.carDescription}>{`Описание: ${cars.description}`}</div>
+          <div className={styles.carCapacity}>{`Вместительность: ${cars.capacity}`}</div>
         </div>
       </div>
 
