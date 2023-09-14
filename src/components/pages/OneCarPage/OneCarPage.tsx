@@ -15,40 +15,33 @@ import { AppDispatch, RootState } from "../../../app/store";
 const OneCarPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const cars = useSelector((state: RootState) => state.oneCarPage.car);
-  const users = useSelector((state: RootState) => state.application.users);
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
-  //  const token = useSelector((state:RootState) => state.application.token)
+  const token = useSelector((state: RootState) => state.application.token);
   const [review, setReviews] = React.useState("");
-  const handleSendReviews = (review: string) => {
 
-      function parseJwt(token) {
-            if (typeof token !== "string") {
-                // Обработка ошибки или возврат значения по умолчанию
-                console.log(token);
-                
-                return null;
-            }
-        const base64Url = token.split(".")[1];
-        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-        const  jsonPayload = decodeURIComponent(
-          atob(base64)
-            .split("")
-            .map(function (c) {
-              return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-            })
-            .join("")
-        );
-        return JSON.parse(jsonPayload);
-      }
-      const userId = parseJwt(users.token);
-      console.log( userId);
-  console.log( review);
-  console.log( carId);
-    dispatch(addReviews({ review, carId, userId: userId.id}));
+  function parseJWT(token) {
+    if (typeof token !== "string") {
+      // Обработка ошибки или возврат значения по умолчанию
+      return null;
+    }
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map(function (c) {
+          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join("")
+    );
+    return JSON.parse(jsonPayload).id;
+  }
+  const id = parseJWT(token);
+
+  const handleSendReviews = (review: string) => {
+    dispatch(addReviews({ review, carId, userId: id }));
     setReviews("");
   };
-  
-  
 
   const { carId } = useParams();
 
@@ -65,11 +58,10 @@ const OneCarPage = () => {
     dispatch(getCarById(carId));
   }, [dispatch]);
 
-//   const user = users.find((user) => user._id === reviewss.user._id)
+  //   const user = users.find((user) => user._id === reviewss.user._id)
+
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
-  console.log(cars);
-  
 
   return (
     <div className={styles.oneCarPage}>
@@ -99,6 +91,7 @@ const OneCarPage = () => {
                 <div className={styles.reviewUser}>{item.user?.login}</div>
                 <div className={styles.reviewText}>{item.text}</div>
                 <div className={styles.reviewFilter}>{reviewCar.item}</div>
+                {console.log(item.user)}
                 <button
                   className={styles.reviewButton}
                   onClick={() => handleDeleteReviews(item._id)}

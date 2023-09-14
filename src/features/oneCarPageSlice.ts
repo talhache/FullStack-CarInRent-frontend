@@ -88,7 +88,7 @@ export const addReviews = createAsyncThunk<
   { rejectValue: unknown; state: RootState }
 >("car/addReviews", async ({ review,  carId, userId }, thunkAPI) => {
   try {
-    const res = await fetch(`http://localhost:4444/reviews/${carId}`, {
+    const res = await fetch('http://localhost:4444/reviews', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,11 +96,11 @@ export const addReviews = createAsyncThunk<
       },
       body: JSON.stringify({
         text: review,
-        userId: userId
-      
+        user: userId,
+        cars: carId
       }),
     });
-    return res.json();
+    return await res.json();
   } catch (err) {
     return thunkAPI.rejectWithValue(err);
   }
@@ -112,7 +112,7 @@ Reviews,
 { rejectValue: unknown; state: RootState}
 >
 ("comments/deletedComments",
-  async ( _id, thunkAPI) => {
+  async ( {_id}, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:4444/reviews/${_id}`, {
         method: "DELETE",
@@ -151,8 +151,9 @@ export const oneCarPageSlice = createSlice({
         state.reviews = action.payload;
       })
       .addCase(addReviews.fulfilled, (state, action) => {
-        state.reviews = action.payload;
-        console.log(action.payload);
+        console.log(action.payload[0]);
+        
+        state.reviews.push(action.payload);
         
         
       });

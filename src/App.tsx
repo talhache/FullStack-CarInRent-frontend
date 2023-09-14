@@ -6,14 +6,13 @@ import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from './app/store'
 import OneCarPage from './components/pages/OneCarPage/OneCarPage'
-import Markpage from './components/pages/MarksPage/Markpage'
+import Markpage from './components/pages/Markspage/Markpage'
 import SignUp from './components/SignUp and SignIn/SignUp'
 import SignIn from './components/SignUp and SignIn/SignIn'
 import Mainpage from './components/pages/CatalogPage/Catalog'
-import Homepage from './components/pages/HomePage/Homepage'
+import Homepage from './components/pages/Homepage/Homepage'
 import Profile from './components/Profile/Profile'
 import OneMarkPage from './components/pages/OneMarkPage/OneMarkPage'
-import CompareCar from './components/pages/CompareCarePage/CompareCar'
 
 
 const App = () => {
