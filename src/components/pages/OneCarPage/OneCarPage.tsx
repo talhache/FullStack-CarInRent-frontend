@@ -68,6 +68,8 @@ const OneCarPage = () => {
 //   const user = users.find((user) => user._id === reviewss.user._id)
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
+  console.log(cars);
+  
 
   return (
     <div className={styles.oneCarPage}>
