@@ -1,15 +1,8 @@
 import React from "react";
 import styles from "./OneCarPage.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  getCarById,
-  patchReviews,
-  addReviews,
-  fetchReviews,
-  deletedReviews,
-} from "../../../features/oneCarPageSlice";
+import { getCarById, patchReviews, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 
 const OneCarPage = () => {
@@ -17,9 +10,7 @@ const OneCarPage = () => {
   const cars = useSelector((state: RootState) => state.oneCarPage.car);
   const reviews = useSelector((state: RootState) => state.oneCarPage.reviews);
   const token = useSelector((state: RootState) => state.application.token);
-  const user = useSelector((state: RootState) => state.user);
   const [review, setReviews] = React.useState("");
-
   function parseJWT(token) {
     if (typeof token !== "string") {
       // Обработка ошибки или возврат значения по умолчанию
@@ -68,7 +59,7 @@ const OneCarPage = () => {
 
   //   const user = users.find((user) => user._id === reviewss.user._id)
   console.log(reviews);
-  
+
 
   const reviewCar = [reviews.find((item) => item.cars === cars._id)];
 

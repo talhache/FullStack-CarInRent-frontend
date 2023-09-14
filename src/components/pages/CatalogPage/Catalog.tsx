@@ -53,6 +53,7 @@ const MainPage: React.FC = () => {
             key={model._id}
             img={model.img}
             name={model.name}
+            mark={model.mark.mark}
             price={model.price}
             description={model.description}
             capacity={model.capacity}
