@@ -36,18 +36,21 @@ const Markpage = () => {
                     type="text"
                     value={searchQuery}
                     placeholder='Выберите марку'
-                    onChange={handleSearchChange} 
-                    className={styles.findMark_input}/>
+                    onChange={handleSearchChange}
+                    className={styles.findMark_input} />
             </div>
-            <div className={styles.marksContainer_cont}>
-                {filteredCars.map((mark) => (
-                    <div className={styles.marksBlock} onClick={() => handleChooseMark(mark._id)}>
-                        <div className={styles.marksImg}>
-                            <img src={`http://localhost:4444/assets/logo/${mark.img}`}/>
+            <div className={styles.cont}>
+                <div className={styles.marksContainer_cont}>
+                    {filteredCars.map((mark) => (
+                        <div className={styles.marksBlock} onClick={() => handleChooseMark(mark._id)}>
+                            <div className={styles.marksImg}>
+                                <img src={`http://localhost:4444/assets/logo/${mark.img}`} />
+                            </div>
+                            <p>{mark.mark}</p>
                         </div>
-                        <p>{mark.mark}</p>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
             </div>
         </div>
     );

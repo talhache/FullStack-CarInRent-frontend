@@ -1,9 +1,9 @@
 .marksContainer {
-   margin: auto;
-   margin-top: 50px;
-   margin-bottom: 50px;
-   width: 80%;
-   cursor: pointer;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 80%;
+  cursor: pointer;
 }
 
 .marksBlock {
@@ -13,20 +13,39 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 10px;
   box-sizing: border-box;
   border-radius: 30px;
   padding: 10px;
   box-sizing: border-box;
   -webkit-box-shadow: 1px 0px 10px 5px rgba(34, 60, 80, 0.19);
   -moz-box-shadow: 1px 0px 10px 5px rgba(34, 60, 80, 0.19);
-  box-shadow: 1px 0px 15px 2px rgba(34, 60, 80, 0.19);
+  box-shadow: 1px 0px 15px 1px rgba(34, 60, 80, 0.19);
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  transition: transform 0.1s; 
+}
+
+.marksBlock:hover {
+  background-color: rgb(227, 227, 227);
+  -webkit-box-shadow: 1px 0px 10px 5px rgba(34, 60, 80, 0.19);
+  -moz-box-shadow: 1px 0px 10px 5px rgba(34, 60, 80, 0.19);
+  box-shadow: inset 1px 0px 15px 1px rgba(34, 60, 80, 0.19);
+  transform: scale(1.05);
 }
 
 .marksBlock p {
   text-align: center;
   margin: auto;
   margin-top: 10px;
+}
+
+.cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .marksImg img {
@@ -36,15 +55,16 @@
 }
 
 .marksContainer_cont {
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .findMark {
-  padding: 0 5px;
+  padding: 0 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .findMark_input {
@@ -52,5 +72,7 @@
   border-radius: 10px;
   padding: 5px 10px;
   box-sizing: border-box;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  height: 50px;
+  border: 1px solid blue;
 }
