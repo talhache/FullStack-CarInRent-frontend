@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import styles from "./OneCarPage.module.css";
-import RentForm from './RentForm';
+import RentForm from "./RentForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getCarById, patchReviews, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
+import {
+  getCarById,
+  patchReviews,
+  addReviews,
+  fetchReviews,
+  deletedReviews,
+} from "../../../features/oneCarPageSlice";
 import { AppDispatch, RootState } from "../../../app/store";
+import { Carousel, CarouselItem } from "react-bootstrap";
 
 const OneCarPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -14,10 +21,10 @@ const OneCarPage = () => {
   const [review, setReviews] = React.useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    city: '',
-    rentalDate: '',
-    phoneNumber: '',
-    paymentMethod: '',
+    city: "",
+    rentalDate: "",
+    phoneNumber: "",
+    paymentMethod: "",
   });
 
   const openModal = () => {
@@ -90,19 +97,33 @@ const OneCarPage = () => {
     <div className={styles.oneCarPage}>
       <div className={styles.car}>
         <div className={styles.carImg}>
-          <img
-            width={500}
-            src={`http://localhost:4444/assets/img/${cars.img}`}
-            alt="car"
-          />
-                     <iframe
-              title="YouTube Video"
-              width="300"
-              height="300"
-              src={cars.video}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
+          <Carousel>
+            <CarouselItem className={styles.carusel}>
+              <ul className={styles.hoverEffectScale}>
+                <li>
+                  <iframe
+                    title="YouTube Video"
+                    width="300"
+                    height="300"
+                    src={cars.video}
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                </li>
+              </ul>
+            </CarouselItem>
+            <CarouselItem className={styles.carusel}>
+              <ul className={styles.hoverEffectScale}>
+                <li>
+                  <img
+                    className="d-block w-100"
+                    src={`http://localhost:4444/assets/img/${cars.img}`}
+                    alt="Second slide"
+                  />
+                </li>
+              </ul>
+            </CarouselItem>
+          </Carousel>
           <button onClick={openModal}>Арендовать</button>
           <RentForm
             isOpen={isModalOpen}
@@ -113,9 +134,13 @@ const OneCarPage = () => {
         </div>
         <div className={styles.carInfo}>
           <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
-          <div className={styles.carPrice}>{`Цена: ${cars.price}`}</div>
-          <div className={styles.carDescription}>{`Описание: ${cars.description}`}</div>
-          <div className={styles.carCapacity}>{`Вместительность: ${cars.capacity}`}</div>
+          <div className={styles.carPrice}>{`Цена: ${cars.price}$`}</div>
+          <div
+            className={styles.carDescription}
+          >{`Описание: ${cars.description}`}</div>
+          <div
+            className={styles.carCapacity}
+          >{`Вместительность: ${cars.capacity}`}</div>
         </div>
       </div>
 
