@@ -28,18 +28,26 @@ const OneCarPage = () => {
   });
 
   const openModal = () => {
-    setIsModalOpen(true);
+    if(token) {
+      setIsModalOpen(true);
+    }else {
+      alert('Сначала авторизируйтесь!')
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange =(fieldsFilled, setFieldsFilled) => (e: React.FormEvent) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
+    });
+    setFieldsFilled({
+      ...fieldsFilled,
+      [name]: !!value, // Поле заполнено, если его значение не пустое
     });
   };
 
