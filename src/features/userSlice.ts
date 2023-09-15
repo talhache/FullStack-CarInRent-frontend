@@ -6,6 +6,7 @@ type User = {
   login: string;
   password: string;
   email: string;
+  
 };
 
 type userInfoState = {

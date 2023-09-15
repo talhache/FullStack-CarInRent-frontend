@@ -98,6 +98,17 @@ const OneCarPage = () => {
       <div className={styles.car}>
         <div className={styles.carImg}>
           <Carousel>
+          <CarouselItem className={styles.carusel}>
+              <ul className={styles.hoverEffectScale}>
+                <li>
+                  <img
+                    className="d-block w-100"
+                    src={`http://localhost:4444/assets/img/${cars.img}`}
+                    alt="Second slide"
+                  />
+                </li>
+              </ul>
+            </CarouselItem>
             <CarouselItem className={styles.carusel}>
               <ul className={styles.hoverEffectScale}>
                 <li>
@@ -109,17 +120,6 @@ const OneCarPage = () => {
                     frameBorder="0"
                     allowFullScreen
                   ></iframe>
-                </li>
-              </ul>
-            </CarouselItem>
-            <CarouselItem className={styles.carusel}>
-              <ul className={styles.hoverEffectScale}>
-                <li>
-                  <img
-                    className="d-block w-100"
-                    src={`http://localhost:4444/assets/img/${cars.img}`}
-                    alt="Second slide"
-                  />
                 </li>
               </ul>
             </CarouselItem>
