@@ -4,15 +4,15 @@ import { AppDispatch, RootState } from '../../app/store';
 import { deleteUser, oneUser } from '../../features/userSlice';
 import { useNavigate } from 'react-router-dom';
 import styles from './Profile.module.css'
+import { fetchModels } from '../../features/modelsSlice';
 
 
 const Profile = () => {
-  const user = useSelector((state: RootState) => state.user.users); // Получаем информацию о пользователе из Redux
+  const user = useSelector((state: RootState) => state.user.users);
+  const { models, status, error } = useSelector((state: RootState) => state.Cars); // Получаем информацию о пользователе из Redu
   const dispatch = useDispatch<AppDispatch>()
   const token = useSelector((state: RootState) => state.application.token)
   const navigate = useNavigate()
-  const car
-
 
   useEffect(() => {
     function parseJWT(token: string) {
@@ -29,6 +29,7 @@ const Profile = () => {
       return JSON.parse(jsonPayload).id
     }
     const id = parseJWT(token)
+    dispatch(fetchModels())
     dispatch(oneUser(id))
   }, [])
 
@@ -39,6 +40,14 @@ const Profile = () => {
     navigate('/')
     location.reload()
   }
+  console.log(user.carInRent);
+  console.log(models[0]);
+
+  // const oneCar = models.filter((item) => item._id === user.carInRent)
+  // console.log(oneCar);
+  
+  
+  
 
   return (
     <div className={styles.container}>
@@ -46,6 +55,9 @@ const Profile = () => {
       <div className={styles.card}>
         <div>
           <p className={styles.userName}>Никнейм: {user.login}</p>
+        </div>
+        <div>
+          <p className={styles.userEmail}>Арендовано: {user.carInRent} </p>
         </div>
         <div>
           <p className={styles.userEmail}>Ваш Email: {user.email}</p>

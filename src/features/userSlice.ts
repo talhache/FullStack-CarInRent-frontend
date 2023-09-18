@@ -6,6 +6,7 @@ type User = {
   login: string;
   password: string;
   email: string;
+  carInRent: string | number
   
 };
 
@@ -14,6 +15,7 @@ type userInfoState = {
   error: null | unknown | string;
   token: string | null | number;
   loading: boolean;
+  
 };
 
 const userState: userInfoState = {
@@ -78,6 +80,8 @@ export const userSlice = createSlice({
         state.loading = false;
       })
       .addCase(oneUser.fulfilled, (state, action) => {
+        console.log(action.payload);
+        
         state.error = null;
         state.users = action.payload;
         state.loading = false;

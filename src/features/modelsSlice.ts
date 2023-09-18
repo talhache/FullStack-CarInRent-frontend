@@ -51,6 +51,8 @@ const modelsSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchModels.fulfilled, (state, action: PayloadAction<Model[]>) => {
+        console.log(action.payload);
+        
         state.status = 'succeeded';
         state.models = action.payload;
       })

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from "../../app/store"
 import logo from './carInRent_logo.svg'
@@ -8,10 +8,14 @@ import styles from './Header.module.css'
 import profile from './registr.svg'
 
 const Header = () => {
+    const navigate = useNavigate()
     const token = useSelector((state: RootState) => state.application.token) // берёт токен из слайса
     const removeToken = () => {
         localStorage.removeItem('token')
         window.location.reload()
+        navigate('/')
+        location.reload()
+
     } //Функция по удалению токена
 
     return (
